@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-12-2022 a las 20:24:59
+-- Tiempo de generación: 28-12-2022 a las 04:39:48
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -42,7 +42,7 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `usuario`, `clave`, `nombre`, `apellido`, `foto`, `rol`) VALUES
-(1, 'admin', '1234', 'Usuario', 'Administrador', '', 'Administrador');
+(1, 'admin', '123', 'Usuario', 'Administrador', '', 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -66,12 +66,16 @@ CREATE TABLE `citas` (
 --
 
 INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`, `documento`, `inicio`, `fin`) VALUES
-(5, 1, 4, 2, 'Adriana Brigethe Moreno', '1715141219', '2022-12-26 10:00:00', '2022-12-26 11:00:00'),
-(6, 1, 4, 2, 'Adriana Brigethe Moreno', '1715141219', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 1, 4, 2, 'Adriana Brigethe Moreno', '1715141219', '2023-01-02 10:00:00', '2023-01-02 11:00:00'),
+(6, 1, 4, 2, 'Adriana Brigethe Moreno', '1715141219', '2023-01-04 12:00:00', '2023-01-04 13:00:00'),
 (7, 8, 2, 2, 'Adriana Brigethe Moreno', '1715141219', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 8, 2, 2, 'Adriana Brigethe Moreno', '1715141219', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 11, 7, 2, 'Adriana Brigethe Moreno Merizalde', '1715141219', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 9, 6, 0, 'Paciente...', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(10, 9, 6, 0, 'Paciente...', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 2, 9, 5, 'Jacome Alexander', '123456789', '2023-01-03 10:00:00', '2023-01-03 11:00:00'),
+(12, 2, 9, 5, 'Jacome Alexander', '123456789', '2023-01-03 14:00:00', '2023-01-03 15:00:00'),
+(13, 3, 5, 8, 'a a', 'a', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 4, 6, 0, 'Paciente...', 'abcd', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -96,7 +100,8 @@ INSERT INTO `consultorios` (`id`, `nombre`) VALUES
 (6, 'Podologia'),
 (7, 'Cuidados Intensivos'),
 (8, 'Psicologia'),
-(9, 'Reabilitacion');
+(9, 'Reabilitacion'),
+(10, 'Neonatologia');
 
 -- --------------------------------------------------------
 
@@ -123,12 +128,12 @@ CREATE TABLE `doctores` (
 --
 
 INSERT INTO `doctores` (`id`, `id_consultorio`, `apellido`, `nombre`, `foto`, `usuario`, `clave`, `sexo`, `horarioE`, `horarioS`, `rol`) VALUES
-(1, 4, 'Jacome', 'Alexander', '', 'doc', 'tor', 'Masculino', '08:00:00', '16:00:00', 'Doctor'),
-(2, 2, 'Piolincito', 'El Canario', '', 'piolin', '123', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
-(3, 1, 'Maria', 'Burbano', '', 'mari', '123', 'Femenino', '00:00:00', '00:00:00', 'Doctor'),
-(4, 2, 'prueba', 'doctor', '', 'testdoctor', '1234', 'Femenino', '00:00:00', '00:00:00', 'Doctor'),
-(5, 1, 'Urbina', 'Andrea', '', 'andi', '123', 'Femenino', '00:00:00', '00:00:00', 'Doctor'),
-(6, 1, 'Buendia', 'Francisco', '', '12', '34', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
+(1, 1, 'Jacome', 'Alexander', 'Vistas/img/Doctores/Doc-976.jpg', 'doc', 'tor', 'Masculino', '07:00:00', '18:00:00', 'Doctor'),
+(2, 9, 'Piolincito', 'El Canario', '', 'piolin', '123', 'Masculino', '08:00:00', '16:00:00', 'Doctor'),
+(3, 5, 'Maria', 'Burbano', '', 'mari', '123', 'Femenino', '08:00:00', '12:00:00', 'Doctor'),
+(4, 7, 'prueba', 'doctor', '', 'testdoctor', '1234', 'Femenino', '08:00:00', '17:00:00', 'Doctor'),
+(5, 2, 'Urbina', 'Andrea', '', 'andi', '123', 'Femenino', '07:00:00', '15:00:00', 'Doctor'),
+(6, 1, 'Buendia', 'Francisco', '', '12', '34', 'Masculino', '08:00:00', '18:00:00', 'Doctor'),
 (7, 1, 'Jacome', 'Alexander', '', '123', '45', 'Masculino', '00:00:00', '00:00:00', 'Doctor'),
 (8, 2, 'Estrella', 'Patricio', '', 'abc', 'def', 'Masculino', '08:00:00', '18:00:00', 'Doctor'),
 (9, 6, 'Perez', 'Juan', '', 'jua', 'n', 'Masculino', '11:00:00', '15:00:00', 'Doctor'),
@@ -185,7 +190,12 @@ INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `foto`, `usuar
 (1, 'Davila', 'Lucia', '1718191514', '', 'pacien', 'te', 'Paciente'),
 (2, 'Moreno Merizalde', 'Adriana Brigethe', '1715141219', '', 'pacient', 'e', 'Paciente'),
 (3, 'prueba', 'paciente de', '1714', '', '12', '34', 'Paciente'),
-(4, 'Borrar', 'Paciente para', '14d', '', '123', '45', 'Paciente');
+(4, 'Borrar ahora', 'Paciente para', '14d', '', '123', '45', 'Paciente'),
+(5, 'Alexander', 'Jacome', '123456789', '', 'paci', 'ente', 'Paciente'),
+(6, 'Burbano', 'Edgar', '21123d123', '', 'pa', 'ciente', 'Paciente'),
+(8, 'a', 'a', 'a', '', 'a', 'a', 'Paciente'),
+(9, 'b', 'b', 'b', '', 'b', 'b', 'Paciente'),
+(10, 'ab', 'ab', 'ab', '', 'ab', 'ab', 'Paciente');
 
 -- --------------------------------------------------------
 
@@ -208,7 +218,9 @@ CREATE TABLE `secretarias` (
 --
 
 INSERT INTO `secretarias` (`ID`, `usuario`, `clave`, `nombre`, `apellido`, `foto`, `rol`) VALUES
-(1, 'secreta', 'ria', 'Angelita ', 'Cordova Galarza', '', 'Secretaria');
+(1, 'secreta', 'ria', 'Angelita ', 'Cordova Galarza', '', 'Secretaria'),
+(2, 'Se', 'cretaria', 'Angie', 'Briones', '', 'Secretaria'),
+(3, 'pato', 'lucas', 'Patricia', 'Lucas', '', 'Secretaria');
 
 --
 -- Índices para tablas volcadas
@@ -270,13 +282,13 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `consultorios`
 --
 ALTER TABLE `consultorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `doctores`
@@ -294,13 +306,13 @@ ALTER TABLE `inicio`
 -- AUTO_INCREMENT de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `secretarias`
 --
 ALTER TABLE `secretarias`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

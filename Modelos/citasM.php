@@ -47,7 +47,7 @@ class CitasM extends ConexionBD{
 	//Pedir cita como doctor
 	static public function PedirCitaDoctorM($tablaBD, $datosC){
 
-		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (id_doctor, id_consultorio, nyaP, documento, inicio, fin) VALUES (:id_doctor, :id_consultorio, :nyaP, :documento, :inicio, :fin)");
+		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (id_doctor, id_consultorio, nyaP, documento, inicio, fin) VALUES (:id_doctor, :id_consultorio, :nyaP, :documento, :inicio, :fin)"); 
 
 		$pdo -> bindParam(":id_doctor", $datosC["Did"], PDO::PARAM_INT);
 		$pdo -> bindParam(":id_consultorio", $datosC["Cid"], PDO::PARAM_INT);
