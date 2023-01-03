@@ -112,34 +112,37 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 							
 							<h2>Seleccionar Paciente:</h2>
 
-							<?php
+								<?php
 
-							echo '<select class="form-control input-lg" name="nombreP">
-								
-								<option>Paciente...</option>';
-
-								$columna = null;
-								$valor = null;
-
-								$resultado = PacientesC::VerPacientesC($columna, $valor);
-
-								foreach ($resultado as $key => $value) {
+								echo '<select class="form-control input-lg" name="nombreP">
 									
-									echo '<option value="'.$value["nombre"].' '.$value["apellido"].'">'.$value["apellido"].' '.$value["nombre"].'</option>';
+									<option>Paciente...</option>';
 
-								}
+									$columna = null;
+									$valor = null;
 
-							?>
+									$resultado = PacientesC::VerPacientesC($columna, $valor);
 
-							</select>
+									foreach ($resultado as $key => $value) {
+										
+										echo '<option value="'.$value["nombre"].' '.$value["apellido"].'">'.$value["apellido"].' '.$value["nombre"].'</option>';
+
+									}
+
+								?>
+
+								</select>
+								
 
 						</div>
 
 						<div class="form-group">
 							
 							<h2>Documento:</h2>
-							
-							<input type="text" class="form-control input-lg" name="documentoP" value="">
+
+							<input type="text" class="form-control input-lg" name="documentoP" value="">							
+
+							<!--Fin Obtener dopcumento-->
 
 						</div>
 						
@@ -176,7 +179,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 					
 					<button type="submit" class="btn btn-primary">Pedir Cita</button>
 
-					<button type="button" class="btn btn-danger">Cancelar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 
 				</div>
 

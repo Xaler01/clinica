@@ -13,6 +13,13 @@ session_start();
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+  <?php
+
+  $favicon = new InicioC();
+  $favicon -> FaviconC();
+  
+  ?>
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="http://localhost/clinica/Vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -83,25 +90,25 @@ session_start();
       $url = explode("/", $_GET["url"]);
 
       if($url[0] == "inicio" ||
-       $url[0] == "salir" || 
-       $url[0] == "perfil-Secretaria" || 
-       $url[0] == "perfil-S" || 
-       $url[0] == "consultorios" || 
-       $url[0] == "E-C" || 
-       $url[0] == "doctores" || 
-       $url[0] == "pacientes" || 
-       $url[0] == "perfil-Paciente" || 
-       $url[0] == "perfil-P" || 
-       $url[0] == "Ver-consultorios" || 
-       $url[0] == "Doctor" || 
-       $url[0] == "historial" || 
-       $url[0] == "perfil-Doctor" || 
-       $url[0] == "perfil-D" || 
-       $url[0] == "Citas" || 
-       $url[0] == "perfil-Administrador" || 
-       $url[0] == "perfil-A" || 
-       $url[0] == "secretarias" || 
-       $url[0] == "inicio-editar"){
+        $url[0] == "salir" || 
+        $url[0] == "perfil-Secretaria" || 
+        $url[0] == "perfil-S" || 
+        $url[0] == "consultorios" || 
+        $url[0] == "E-C" || 
+        $url[0] == "doctores" || 
+        $url[0] == "pacientes" || 
+        $url[0] == "perfil-Paciente" || 
+        $url[0] == "perfil-P" || 
+        $url[0] == "Ver-consultorios" || 
+        $url[0] == "Doctor" || 
+        $url[0] == "historial" || 
+        $url[0] == "perfil-Doctor" || 
+        $url[0] == "perfil-D" || 
+        $url[0] == "Citas" || 
+        $url[0] == "perfil-Administrador" || 
+        $url[0] == "perfil-A" || 
+        $url[0] == "secretarias" || 
+        $url[0] == "inicio-editar"){
 
         include "modulos/".$url[0].".php";
 
@@ -138,6 +145,10 @@ session_start();
 
         include "modulos/ingreso-Administrador.php";
 
+      }else if($_GET["url"] == "registroP"){
+
+        include "modulos/registroP.php";
+
       }
 
     }else {
@@ -147,8 +158,18 @@ session_start();
     }
 
 
-
   ?>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+  
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+ 
+
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
@@ -173,12 +194,12 @@ session_start();
 <!-- fullCalendar -->
 <script src="http://localhost/clinica/Vistas/bower_components/moment/moment.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
 
 <script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
 <script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
 <script src="http://localhost/clinica/Vistas/js/secretarias.js"></script>
-
 
 <script>
   $(document).ready(function () {
@@ -190,75 +211,75 @@ session_start();
         m    = date.getMonth(),
         y    = date.getFullYear()
     
-        $('#calendar').fullCalendar({
+    $('#calendar').fullCalendar({
       
-       hiddenDays: [0,6], 
+      hiddenDays: [0,6], 
 
-       defaultView: 'agendaWeek',
+      defaultView: 'agendaWeek',
 
       events:[
 
-              <?php
+        <?php
 
-                  $columna = null;
-                  $valor = null;
+            //$columna = null;
+            //$valor = null;
 
-                  $resultado = CitasC::VerCitasC($columna, $valor);
+            $resultado = CitasC::VerCitasC($columna, $valor);
 
-                  foreach ($resultado as $key => $value) {
+            foreach ($resultado as $key => $value) {
 
-                    if($value["id_doctor"] == substr($_GET["url"], 7)){
+              if($value["id_doctor"] == substr($_GET["url"], 7)){
 
-                       echo '{
-                              id: '.$value["id"].',
-                              title:  "'.$value["nombre_paciente"].'",
-                              start:"'.$value["inicio"].'",
-                              end:"'.$value["fin"].'"
-                            },';
+                  echo '{
+                        id: '.$value["id"].',
+                        title:  "'.$value["nyaP"].'",
+                        start:"'.$value["inicio"].'",
+                        end:"'.$value["fin"].'"
+                      },';
 
-                      }else if($value["id_doctor"] == substr($_GET["url"], 6)){
+              }else if($value["id_doctor"] == substr($_GET["url"], 6)){
 
-                       echo '{
-                              id: '.$value["id"].',
-                              title:  "'.$value["nombre_paciente"].'",
-                              start:"'.$value["inicio"].'",
-                              end:"'.$value["fin"].'"
-                            },';
+                  echo '{
+                        id: '.$value["id"].',
+                        title:  "'.$value["nyaP"].'",
+                        start:"'.$value["inicio"].'",
+                        end:"'.$value["fin"].'"
+                      },';
 
-                      }
+              }
 
-                  }
-                 
+            }
+            
 
-              ?>
+        ?>
 
       ],
 
        <?php
 
-       if($_SESSION["rol"] == "Paciente"){
+        if($_SESSION["rol"] == "Paciente"){
 
           $columna = "id";
-              $valor = substr($_GET["url"], 7);
+          $valor = substr($_GET["url"], 7);
 
-              $resultado = DoctoresC::DoctorC($columna, $valor);
-             
-              echo 'scrollTime: "'.$resultado["horarioE"].'",
-                      minTime: "'.$resultado["horarioE"].'",
-                      maxTime: "'.$resultado["horarioS"].'",';
+          $resultado = DoctoresC::DoctorC($columna, $valor);
+        
+          echo 'scrollTime: "'.$resultado["horarioE"].'",
+                  minTime: "'.$resultado["horarioE"].'",
+                  maxTime: "'.$resultado["horarioS"].'",';
 
-       }else if($_SESSION["rol"] == "Doctor"){
+        }else if($_SESSION["rol"] == "Doctor"){
 
-          $columna = "id";
-          $valor = substr($_GET["url"], 6);
+            $columna = "id";
+            $valor = substr($_GET["url"], 6);
 
-              $resultado = DoctoresC::DoctorC($columna, $valor);
-             
-              echo 'scrollTime: "'.$resultado["horarioE"].'",
-                      minTime: "'.$resultado["horarioE"].'",
-                      maxTime: "'.$resultado["horarioS"].'",';
+                $resultado = DoctoresC::DoctorC($columna, $valor);
+              
+                echo 'scrollTime: "'.$resultado["horarioE"].'",
+                        minTime: "'.$resultado["horarioE"].'",
+                        maxTime: "'.$resultado["horarioS"].'",';
 
-       }
+        }
               
         ?>
 
@@ -274,20 +295,20 @@ session_start();
 
         var hora = (fecha[1]).split(":");
 
-        var fff = parseFloat(hora[0]);
-        var ggg = parseFloat(hora2[0]);
+        var h1 = parseFloat(hora[0]);
+        var h2 = parseFloat(hora2[0]);
 
-        var horaFinal = fff+ggg;
+        var horaFinal = h1+h2;
 
         $('#CitaModal').modal();
     
         $('#fechaC').val(dia);
         
-          $('#horaC').val(fff+":00:00");
+        $('#horaC').val(h1+":00:00");
 
-           $('#fyhC').val(fecha[0]+" "+fff+":00:00");
+        $('#fyhIC').val(fecha[0]+" "+h1+":00:00");
 
-         $('#horaFinC').val(fecha[0]+" "+horaFinal+":00:00");
+        $('#fyhFC').val(fecha[0]+" "+horaFinal+":00:00");
         
       }
 

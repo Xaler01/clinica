@@ -155,7 +155,7 @@ if($_SESSION["rol"] != "Paciente"){
 					
 					<button type="submit" class="btn btn-primary">Pedir Cita</button>
 
-					<button type="button" class="btn btn-danger">Cancelar</button>
+					<button type="button" class="btn btn-danger"  data-dismiss="modal">Cancelar</button>
 
 				</div>
 

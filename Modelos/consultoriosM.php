@@ -27,8 +27,6 @@ class ConsultoriosM extends ConexionBD{
 	//Ver consultorios
 	static public function VerConsultoriosM($tablaBD, $columna, $valor){
 
-		//echo'<script type="text/javascript">  alert("Llega hasta VerConsultorioM"); </script>';
-
 		if($columna == null){
 
 			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
@@ -55,7 +53,6 @@ class ConsultoriosM extends ConexionBD{
 
 	//Borrar Consultorios
 	static public function BorrarConsultorioM($tablaBD, $id){
-		echo'<script type="text/javascript">  alert("Llega hasta BorrarConsultorioM"); </script>';
 
 		$pdo = ConexionBD::cBD()->prepare("DELETE FROM $tablaBD WHERE id = :id");
 
@@ -96,8 +93,6 @@ class ConsultoriosM extends ConexionBD{
 
 	//Actualizar Consultorios
 	static public function ActualizarConsultoriosM($tablaBD, $datosC){
-
-		//echo'<script type="text/javascript">  alert("Llega hasta ActualizarConsultorioM"); </script>';
 
 		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET nombre = :nombre WHERE id = :id");
 

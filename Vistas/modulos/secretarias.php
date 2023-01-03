@@ -35,8 +35,8 @@ if($_SESSION["rol"] != "Administrador"){
 
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped dt-responsive DT">
-					
+				<!--<table class="table table-bordered table-hover table-striped dt-responsive DT">-->
+				<table class="table table-bordered table-hover table-striped  DT">
 					<thead>
 						
 						<tr>
@@ -86,7 +86,7 @@ if($_SESSION["rol"] != "Administrador"){
 										<div class="btn-group">
 											
 											<button class="btn btn-danger EliminarSecretaria" Sid="'.$value["id"].'" imgS="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
-											
+
 										</div>
 
 									</td>

@@ -31,7 +31,9 @@
         ?>
        
         
-        
+       <div class="box-footer"><hr>
+          Derechos reservados @Xaler01 2022-2023
+        </div>
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->

@@ -1,6 +1,6 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Ingreso Sistema de Citas</b></a>
+  <a href="seleccionar"><b>Ingreso Sistema de Citas</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -31,6 +31,14 @@
         <!-- /.col -->
       </div>
 
+
+      <!--Registro nuevo paciente-->
+      
+        <br>
+
+        <a href="registroP" class="text-center">Registro nuevo usuario</a>
+    
+      <!--fin Registro nuevo paciente-->
       <?php
 
       $ingreso = new PacientesC();
@@ -42,3 +50,5 @@
   </div>
   <!-- /.login-box-body -->
 </div>
+
+

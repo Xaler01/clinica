@@ -14,8 +14,10 @@ class InicioC{
          
 	          <div class="col-md-6 bg-primary" style="margin-top: 5%">
 	            
-	            <h1>Bienvenidos</h1>
-
+			  <h1>Bienvenidos</h1>
+			  <!--<hr>
+			  <h2>Anuncios</h2>-->
+			 
 	            <h3>'.$resultado["intro"].'</h3>
 
 	            <hr>
@@ -107,6 +109,7 @@ class InicioC{
 						<br>
 
 						<img src="http://localhost/clinica/'.$resultado["favicon"].'" width="200px;">
+						
 
 
 						<input type="hidden" name="faviconActual" value="'.$resultado["favicon"].'">

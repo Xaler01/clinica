@@ -26,6 +26,31 @@ class PacientesC{
 
 	}
 
+	public function CrearPacienteLogC(){
+
+		if(isset($_POST["rolP"])){
+
+			$tablaBD = "pacientes";
+
+			$datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+
+			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
+
+			if($resultado == true){
+
+				echo'<script type="text/javascript">  alert("El usuario se creo correctamente, Ingrese con las credenciales creadas"); </script>';
+
+				echo '<script>
+
+				window.location = "ingreso-Paciente";
+				</script>';
+
+			}
+
+		}
+
+	}
+
 
 
 	//Ver Pacientes

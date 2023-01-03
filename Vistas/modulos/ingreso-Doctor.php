@@ -1,6 +1,6 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Clínica Médica</b></a>
+  <a href="seleccionar"><b>Ingreso Sistema de Citas</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
