@@ -17,7 +17,7 @@ if($_SESSION["rol"] != "Secretaria"){
 <div class="content-wrapper">
 	
 	<section class="content-header">
-		<h1>Editar Consultorio</h1>
+		<h1>Editar Especialidad</h1>
 	</section>
 
 	<section class="content">

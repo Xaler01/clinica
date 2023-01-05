@@ -28,6 +28,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 			
 			<div class="box-header">
 				
+				
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>
 				
 			</div>

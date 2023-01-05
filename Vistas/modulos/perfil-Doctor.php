@@ -39,7 +39,7 @@ if($_SESSION["rol"] != "Doctor"){
 							<th>Nombre</th>
 							<th>Apellido</th>
 							<th>Foto</th>
-                            <th>Consultorio</th>
+                            <th>Especialidad</th>
 							<th>Horario</th>
 							<th>Editar</th>
 

@@ -35,7 +35,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped DT">
+				<table class="table table-bordered table-hover table-striped dt-responsive DT">
 					
 					<thead>
 						
@@ -45,7 +45,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>Apellido</th>
 							<th>Nombre</th>
 							<th>Foto</th>
-							<th>Consultorio</th>
+							<th>Especialidad</th>
 							<th>Usuario</th>
 							<th>Contraseña</th>
 							<th>Editar / Borrar</th>

@@ -18,7 +18,7 @@ if ($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador") {
 
 	<section class="content-header">
 
-		<h1>Gestor de Consultorios</h1>
+		<h1>Gestor de Especialidades</h1>
 
 	</section>
 
@@ -34,7 +34,7 @@ if ($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador") {
 						<input type="text" class="form-control" name="consultorioN" placeholder="Ingrese Nuevo Consultorio" required>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Crear Consultorio</button>
+					<button type="submit" class="btn btn-primary">Crear Especialidad</button>
 
 				</form>
 						

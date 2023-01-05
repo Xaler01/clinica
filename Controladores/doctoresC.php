@@ -239,8 +239,8 @@ class DoctoresC{
 
 				$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
 
-				echo '<h2>Consultorio Actual: '.$consultorio["nombre"].'</h2>
-					<h3>Cambiar Consultorio</h3>
+				echo '<h2>Especialidad Actual: '.$consultorio["nombre"].'</h2>
+					<h3>Cambiar Especialidad</h3>
 							<select class="input-lg" name="consultorioPerfil">';
 								
 							$columna = null;

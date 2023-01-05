@@ -41,7 +41,7 @@ if($_SESSION["rol"] != "Paciente"){
 		$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
 
 		echo '<br>
-		<h1>Consultorio de: '.$consultorio["nombre"].'</h1>';
+		<h1>Especialidad: '.$consultorio["nombre"].'</h1>';
 
 		?>
 		

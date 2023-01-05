@@ -117,7 +117,7 @@ class AdminC{
 
 					<div class="col-md-6 col-xs-12">
 						
-						<br><br>
+						<br><br>.
 
 						<input type="file" name="imgP">
 						<br>';

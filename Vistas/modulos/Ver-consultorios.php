@@ -18,7 +18,7 @@ if ($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Paciente") {
 
 	<section class="content-header">
 
-		<h1>Elija un consultorio:</h1>
+		<h1>Elija una especialidad:</h1>
 
 	</section>
 

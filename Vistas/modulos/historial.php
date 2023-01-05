@@ -36,7 +36,7 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 							
 							<th>Fecha y Hora</th>
 							<th>Doctor</th>
-							<th>Consultorio</th>
+							<th>Especialidad</th>
 
 						</tr>
 

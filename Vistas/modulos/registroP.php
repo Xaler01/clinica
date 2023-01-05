@@ -24,6 +24,10 @@
         <span class="glyphicon glyphicon-credit-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
+        <input type="email" class="form-control" name="correo" placeholder="Correo " required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
         <input type="text" class="form-control"  id="usuario" name="usuario" placeholder="Usuario" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>

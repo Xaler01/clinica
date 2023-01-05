@@ -9,7 +9,7 @@ if($_SESSION["rol"] != "Administrador"){
 
 	return;
 
-}
+} 
 
 ?>
 

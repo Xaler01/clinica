@@ -32,7 +32,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "correo"=>$_POST["correo"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -180,7 +180,8 @@ class PacientesC{
 				<td>'.$resultado["usuario"].'</td>
 				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["nombre"].'</td>
-				<td>'.$resultado["apellido"].'</td>';
+				<td>'.$resultado["apellido"].'</td>
+				<td>'.$resultado["correo"].'</td>';
 
 				if($resultado["foto"] == ""){
 
@@ -230,6 +231,9 @@ class PacientesC{
 
 							<h2>Apellido:</h2>
 							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
+
+							<h2>Correo:</h2>
+							<input type="email" class="input-lg" name="correoPerfil" value="'.$resultado["correo"].'">
 
 							<h2>Usuario:</h2>
 							<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
@@ -321,7 +325,7 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"],  "correo"=>$_POST["correoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
 
 			$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
 

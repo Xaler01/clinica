@@ -194,12 +194,12 @@ session_start();
 <!-- fullCalendar -->
 <script src="http://localhost/clinica/Vistas/bower_components/moment/moment.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/fullcalendar.js"></script>
 <script src="http://localhost/clinica/Vistas/bower_components/fullcalendar/dist/locale/es.js"></script>
 
 <script src="http://localhost/clinica/Vistas/js/doctores.js"></script>
 <script src="http://localhost/clinica/Vistas/js/pacientes.js"></script>
 <script src="http://localhost/clinica/Vistas/js/secretarias.js"></script>
+
 
 <script>
   $(document).ready(function () {
