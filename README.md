@@ -1,5 +1,3 @@
-# CitasMedicas
-<<<<<<< HEAD
 Sistema de Gestión de citas medicas.
 
 En el presente proyecto, se ha usado MVC con "AdminLTE-2.4.2" para la hacer una interfaz responsive. 
@@ -10,8 +8,3 @@ Los perfiles de cada rol, tiene su intefaz para autogestionar los datos básicos
 El rol administrador puede gestionar la interfaz inicio para todos los usuarios.
 
 Es necesario descargar AdminLTE-2.4.2 y copiar las carpetas "bower_components" y "dist" en la "vistas" del proyecto. 
-
-
-=======
-Sistema de Gestión de citas medicas 
->>>>>>> 64e70cba5f29a0d149298b2044d19d391969b791
