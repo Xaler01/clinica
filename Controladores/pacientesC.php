@@ -9,7 +9,13 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("apellido"=>$_POST["apellido"], 
+							"nombre"=>$_POST["nombre"], 
+							"documento"=>$_POST["documento"], 
+							"correo"=>$_POST["correo"], 
+							"usuario"=>$_POST["usuario"], 
+							"clave"=>$_POST["clave"], 
+							"rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 
@@ -32,7 +38,13 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("apellido"=>$_POST["apellido"], "nombre"=>$_POST["nombre"], "documento"=>$_POST["documento"], "correo"=>$_POST["correo"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolP"]);
+			$datosC = array("apellido"=>$_POST["apellido"], 
+							"nombre"=>$_POST["nombre"], 
+							"documento"=>$_POST["documento"], 
+							"correo"=>$_POST["correo"], 
+							"usuario"=>$_POST["usuario"], 
+							"clave"=>$_POST["clave"], 
+							"rol"=>$_POST["rolP"]);
 
 			$resultado = PacientesM::CrearPacienteM($tablaBD, $datosC);
 

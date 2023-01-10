@@ -63,7 +63,7 @@ $("#usuario").change(function(){
 
 			if(resultado){
 
-				$("#usuario").parent().after('<div class="alert alert-danger">El Usuario ya existe.</div>');
+				$("#usuario").parent().after('<div class="alert alert-danger">El usuario ya existe y se encuentra guardado.</div>');
 
 				$("#usuario").val("");
 
@@ -98,7 +98,7 @@ $("#usuarioE").change(function(){
 
 			if(resultado){
 
-				$("#usuarioE").parent().after('<div class="alert alert-danger">El Usuario ya existe.</div>');
+				$("#usuarioE").parent().after('<div class="alert alert-danger">El usuario ya existe y se encuentra registrado.</div>');
 
 				$("#usuarioE").val("");
 

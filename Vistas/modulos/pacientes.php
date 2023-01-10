@@ -28,8 +28,18 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 			
 			<div class="box-header">
 				
+				<?php
+
+					if($_SESSION["rol"] != "Doctor"){
+
+						echo '<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>';
+
+					}
+
+
+				?>
 				
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearPaciente">Crear Paciente</button>
+				
 				
 			</div>
 
@@ -158,6 +168,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							<h2>Documento:</h2>
 
 							<input type="text" class="form-control input-lg" name="documento" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h2>Correo:</h2>
+
+							<input type="email" class="form-control input-lg" name="correo" required>
 
 						</div>
 

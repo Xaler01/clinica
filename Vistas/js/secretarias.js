@@ -7,3 +7,4 @@ $(".DT").on("click", ".EliminarSecretaria", function(){
 	window.location = "index.php?url=secretarias&Sid="+Sid+"&imgS="+imgS;
 
 })
+

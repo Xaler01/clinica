@@ -60,8 +60,10 @@ session_start();
   if(isset($_SESSION["Ingresar"]) && $_SESSION["Ingresar"] == true){
     
     echo '<div class="wrapper">';
-
+    //Se incluye al modulo cabecera en la plantilla
     include "modulos/cabecera.php";
+
+     //Muestra los menus de acuerdo al perfil del usuario
 
     if($_SESSION["rol"] == "Secretaria"){
 
