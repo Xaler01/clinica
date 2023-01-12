@@ -1,3 +1,12 @@
+$(".DT").on("click", ".EliminarDoctor", function(){
+
+	var Did = $(this).attr("Did");
+	var imgD = $(this).attr("imgD");
+
+	window.location = "index.php?url=doctores&Did="+Did+"&imgD="+imgD;
+
+})
+
 $(".DT").on("click", ".EditarDoctor", function(){
 
 	var Did = $(this).attr("Did");
@@ -20,11 +29,25 @@ $(".DT").on("click", ".EditarDoctor", function(){
 			$("#Did").val(resultado["id"]);
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
+			
+
+			$("#correoE").val(resultado["correo"]);
+			$("#telefonoE").val(resultado["telefono"]);
+			$("#direccionE").val(resultado["direccion"]);
+			$("#ciudadE").val(resultado["ciudad"]);
+			$("#fnacimientoE").val(resultado["fnacimiento"]);
+			$("#sexoE").val(resultado["sexo"]);
+			$("#documentoE").val(resultado["documento"]);
+
+			$("#fotoE").val(resultado["foto"]);
 			$("#usuarioE").val(resultado["usuario"]);
 			$("#claveE").val(resultado["clave"]);
+			$("#consultorioE").val(resultado["consultorio"]);
+			$("#horarioE").val(resultado["horarioE"]);
+			$("#horarioS").val(resultado["horarioS"]);
 
-			$("#sexoE").html(resultado["sexo"]);
-			$("#sexoE").val(resultado["sexo"]);
+			//$("#sexoE").html(resultado["sexo"]);
+			
 
 		} 
 
@@ -32,16 +55,76 @@ $(".DT").on("click", ".EditarDoctor", function(){
 
 })
 
+$("#usuario").change(function(){
 
+	$(".alert").remove();
 
-$(".DT").on("click", ".EliminarDoctor", function(){
+	var usuario = $(this).val();
+	var datos = new FormData();
+	datos.append("Norepetir", usuario);
 
-	var Did = $(this).attr("Did");
-	var imgD = $(this).attr("imgD");
+	$.ajax({
 
-	window.location = "index.php?url=doctores&Did="+Did+"&imgD="+imgD;
+		url: "Ajax/doctoresA.php",
+		method: "POST",
+		data: datos,
+		dataType: "json",
+		cache: false,
+		contentType: false,
+		processData: false,
+
+		success: function(resultado){
+
+			if(resultado){
+
+				$("#usuario").parent().after('<div class="alert alert-danger">El usuario o identificación ya existen. Elija otro.</div>');
+
+				$("#usuario").val("");
+
+			}
+
+		}
+
+	})
 
 })
+
+//No repetir paciente por usuario ni identificacion
+$("#usuarioE").change(function(){
+
+	$(".alert").remove();
+
+	var usuario = $(this).val();
+	var datos = new FormData();
+	datos.append("Norepetir", usuario);
+
+	$.ajax({
+
+		url: "Ajax/doctoresA.php",
+		method: "POST",
+		data: datos,
+		dataType: "json",
+		cache: false,
+		contentType: false,
+		processData: false,
+
+		success: function(resultado){
+
+			if(resultado){
+
+				$("#usuarioE").parent().after('<div class="alert alert-danger">El usuario o identificación ya existen. Elija otro.</div>');
+
+				$("#usuarioE").val("");
+
+			}
+
+		}
+
+	})
+
+})
+
+
 
 
 $(".DT").DataTable({

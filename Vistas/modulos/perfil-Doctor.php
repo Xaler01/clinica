@@ -28,7 +28,7 @@ if($_SESSION["rol"] != "Doctor"){
 			
 			<div class="box-body">
 				
-				<table class="table table-bordered table-hover table-striped">
+				<table class="table table-bordered table-hover table-striped dt-responsive DT">
 					
 					<thead>
 						
@@ -38,8 +38,17 @@ if($_SESSION["rol"] != "Doctor"){
 							<th>Contraseña</th>
 							<th>Nombre</th>
 							<th>Apellido</th>
+							<th>Correo</th>
+
+							<th>Telefono</th>
+							<th>Dirección</th>
+							<th>Ciudad</th>
+							<th>F. nacimimiento</th>
+							<th>Genero</th>
+
 							<th>Foto</th>
                             <th>Especialidad</th>
+							<th>Identificación</th>
 							<th>Horario</th>
 							<th>Editar</th>
 

@@ -12,40 +12,49 @@ class InicioC{
 
 		echo '<div class="box-body">
          
-	          <div class="col-md-6 bg-primary" style="margin-top: 5%">
+			<div class="col-md-6 bg-primary" style="margin-top: 5%">
+				
+				<h1>Bienvenidos</h1>
+
+					<h3>'.$resultado["intro"].'</h3>
+			
+				<hr>
+
+				<h2>Horario:</h2>
+
+					<h3>Desde: '.$resultado["horaE"].'</h3>
+					<h3>Hasta: '.$resultado["horaS"].'</h3>
+
+				<hr>
+
+				<h2>Dirección:</h2>
+
+					<h3>'.$resultado["direccion"].'</h3>
+
+				<hr>
+
+				<h2>Contactos:</h2>
+				
+					<h3>Teléfono: '.$resultado["telefono"].' </h3>
+					<h3>Correo: '.$resultado["correo"].'</h3>
+				
+				<hr>
+
+				<h2>Anuncios</h2>
+
+					<h3>'.$resultado["anuncios"].'</h3>
+
+				<hr>	
+
+				</div>
+
+	          	<div class="col-md-6">
 	            
-			  <h1>Bienvenidos</h1>
-			  <!--<hr>
-			  <h2>Anuncios</h2>-->
-			 
-	            <h3>'.$resultado["intro"].'</h3>
+	           	 	<img src="'.$resultado["logo"].'" class="img-responsive">
 
-	            <hr>
+	       	</div>
 
-	            <h2>Horario:</h2>
-	            <h3>Desde: '.$resultado["horaE"].'</h3>
-	            <h3>Hasta: '.$resultado["horaS"].'</h3>
-
-	            <hr>
-
-	            <h2>Dirección:</h2>
-	            <h3>'.$resultado["direccion"].'</h3>
-
-	            <hr>
-
-	            <h2>Contactos:</h2>
-	            <h3>Teléfono: '.$resultado["telefono"].' <br>
-	            Correo: '.$resultado["correo"].'</h3>
-
-	          </div>
-
-	          <div class="col-md-6">
-	            
-	            <img src="'.$resultado["logo"].'" class="img-responsive">
-
-	          </div>
-
-	        </div>';
+	    </div>';
 
 	}
 
@@ -86,6 +95,11 @@ class InicioC{
 						<h2>Correo:</h2>
 						<input type="text" class="input-lg" name="correo" value="'.$resultado["correo"].'">
 
+						<h2>Anuncios:</h2>
+						<div class="form-group">							
+							<textarea type="text" class="input-lg" name="anuncios" rows="5" value="'.$resultado["anuncios"].'" placeholder="'.$resultado["anuncios"].'" required></textarea>
+						</div>
+						
 					</div>
 
 					<div class="col-md-6 col-xs-12">
@@ -117,6 +131,17 @@ class InicioC{
 						<br><br>
 
 						<button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+						<button type="button" class="btn btn-danger" data-dismiss="modal"  id="btn-cancelar">Cancelar</button>
+						
+						<script type="text/javascript">
+
+							document.getElementById("btn-cancelar").onclick = function () 
+							{
+								location.href = "http://localhost/clinica/Citas";
+							};
+							
+						</script>
 
 					</div>
 
@@ -201,7 +226,16 @@ class InicioC{
 
 			$tablaBD = "inicio";
 
-			$datosC = array("id"=>$_POST["Iid"], "intro"=>$_POST["intro"], "horaE"=>$_POST["horaE"], "horaS"=>$_POST["horaS"], "telefono"=>$_POST["telefono"], "correo"=>$_POST["correo"], "direccion"=>$_POST["direccion"], "logo"=>$rutaLogo, "favicon"=>$rutaFavicon);
+			$datosC = array("id"=>$_POST["Iid"], 
+			"intro"=>$_POST["intro"], 
+			"horaE"=>$_POST["horaE"], 
+			"horaS"=>$_POST["horaS"], 
+			"telefono"=>$_POST["telefono"], 
+			"correo"=>$_POST["correo"], 
+			"direccion"=>$_POST["direccion"],
+			"anuncios"=>$_POST["anuncios"],
+			 "logo"=>$rutaLogo, 
+			 "favicon"=>$rutaFavicon);
 
 			$resultado = InicioM::ActualizarInicioM($tablaBD, $datosC);
 

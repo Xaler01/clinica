@@ -12,7 +12,14 @@ class PacientesC{
 			$datosC = array("apellido"=>$_POST["apellido"], 
 							"nombre"=>$_POST["nombre"], 
 							"documento"=>$_POST["documento"], 
+
 							"correo"=>$_POST["correo"], 
+							"telefono"=>$_POST["telefono"], 
+							"direccion"=>$_POST["direccion"],
+							"ciudad"=>$_POST["ciudad"],
+							"fnacimiento"=>$_POST["fnacimiento"],
+							"sexo"=>$_POST["sexo"],
+
 							"usuario"=>$_POST["usuario"], 
 							"clave"=>$_POST["clave"], 
 							"rol"=>$_POST["rolP"]);
@@ -117,7 +124,21 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "apellido"=>$_POST["apellidoE"], "nombre"=>$_POST["nombreE"], "documento"=>$_POST["documentoE"], "usuario"=>$_POST["usuarioE"], "clave"=>$_POST["claveE"]);
+			$datosC = array(
+				"id"=>$_POST["Pid"], 
+				"apellido"=>$_POST["apellidoE"], 
+				"nombre"=>$_POST["nombreE"], 
+				"documento"=>$_POST["documentoE"], 
+
+				"correo"=>$_POST["correoE"], 
+				"telefono"=>$_POST["telefonoE"], 
+				"direccion"=>$_POST["direccionE"], 
+				"ciudad"=>$_POST["ciudadE"], 
+				"fnacimiento"=>$_POST["fnacimientoE"], 
+				"sexo"=>$_POST["sexoE"], 
+
+				"usuario"=>$_POST["usuarioE"], 
+				"clave"=>$_POST["claveE"]);
 
 			$resultado = PacientesM::ActualizarPacienteM($tablaBD, $datosC);
 			
@@ -144,7 +165,8 @@ class PacientesC{
 
 				$tablaBD = "pacientes";
 
-				$datosC = array("usuario"=>$_POST["usuario-Ing"], "clave"=>$_POST["clave-Ing"]);
+				$datosC = array("usuario"=>$_POST["usuario-Ing"], 
+				"clave"=>$_POST["clave-Ing"]);
 
 				$resultado = PacientesM::IngresarPacienteM($tablaBD, $datosC);
 
@@ -159,6 +181,14 @@ class PacientesC{
 					$_SESSION["apellido"] = $resultado["apellido"];
 					$_SESSION["nombre"] = $resultado["nombre"];
 					$_SESSION["documento"] = $resultado["documento"];
+					
+					$_SESSION["correo"] = $resultado["correo"];
+					$_SESSION["telefono"] = $resultado["telefono"];
+					$_SESSION["direccion"] = $resultado["direccion"];
+					$_SESSION["ciudad"] = $resultado["ciudad"];
+					$_SESSION["fnacimiento"] = $resultado["fnacimiento"];
+					$_SESSION["sexo"] = $resultado["sexo"];
+
 					$_SESSION["foto"] = $resultado["foto"];
 					$_SESSION["rol"] = $resultado["rol"];
 
@@ -193,7 +223,13 @@ class PacientesC{
 				<td>'.$resultado["clave"].'</td>
 				<td>'.$resultado["nombre"].'</td>
 				<td>'.$resultado["apellido"].'</td>
-				<td>'.$resultado["correo"].'</td>';
+				<td>'.$resultado["correo"].'</td>
+				
+				<td>'.$resultado["telefono"].'</td>
+				<td>'.$resultado["direccion"].'</td>
+				<td>'.$resultado["ciudad"].'</td>
+				<td>'.$resultado["fnacimiento"].'</td>
+				<td>'.$resultado["sexo"].'</td>';
 
 				if($resultado["foto"] == ""){
 
@@ -221,8 +257,60 @@ class PacientesC{
 	}
 
 
+		//Ver perfil del paciente para diagnostico
+		public function VerPerfilDiagnosticoPacienteC(){
 
-	//Editar Perfil Paceinte
+			$tablaBD = "pacientes";
+	
+			$id = $_SESSION["id"];
+	
+			$resultado = PacientesM::VerPerfilDiagnosticoPacienteM($tablaBD, $id);
+	
+			echo '<tr>
+					
+
+					<td>'.$resultado["nombre"].'</td>
+					<td>'.$resultado["apellido"].'</td>
+					<td>'.$resultado["documento"].'</td>
+					<td>24</td>
+					<td>'.$resultado["sexo"].'</td>
+
+
+					<td>'.$resultado["correo"].'</td>					
+					<td>'.$resultado["telefono"].'</td>
+					<td>'.$resultado["direccion"].'</td>
+					<td>'.$resultado["ciudad"].'</td>
+					<td>'.$resultado["fnacimiento"].'</td>
+					';
+	
+					if($resultado["foto"] == ""){
+	
+						echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
+	
+					}else{
+	
+						echo '<td><img src="'.$resultado["foto"].'" width="40px"></td>';
+	
+					}
+					
+	
+					echo '
+	
+					<td>
+						
+						<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
+							<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+						</a>
+	
+					</td>
+	
+				</tr>';
+	
+		}
+
+
+
+	//Editar Perfil Paciente *
 	public function EditarPerfilPacienteC(){
 
 		$tablaBD = "pacientes";
@@ -237,24 +325,59 @@ class PacientesC{
 						
 						<div class="col-md-6 col-xs-12">
 							
-							<h2>Nombre:</h2>
+							<h3>Nombre:</h3>
 							<input type="text" class="input-lg" name="nombrePerfil" value="'.$resultado["nombre"].'">
 							<input type="hidden" class="input-lg" name="Pid" value="'.$resultado["id"].'">
 
-							<h2>Apellido:</h2>
+							<h3>Apellido:</h3>
 							<input type="text" class="input-lg" name="apellidoPerfil" value="'.$resultado["apellido"].'">
 
-							<h2>Correo:</h2>
+							<h3>Correo:</h3>
 							<input type="email" class="input-lg" name="correoPerfil" value="'.$resultado["correo"].'">
 
-							<h2>Usuario:</h2>
+							<h3>Telefono:</h3>
+							<input type="text" class="input-lg" name="telefonoPerfil" value="'.$resultado["telefono"].'">
+
+							<h3>Dirección:</h3>
+							<input type="text" class="input-lg" name="direccionPerfil" value="'.$resultado["direccion"].'">
+
+							<h3>Ciudad de residencia:</h3>
+							<select class="form-control input-lg" name="ciudadPerfil" required>
+								
+								<option>'.$resultado["ciudad"].'</option>
+
+								<option value="El Oro">El Oro</option>
+								<option value="Quito">Quito</option>
+								<option value="Loja">Loja</option>
+								<option value="Tulcan">Tulcan</option>
+								<option value="Otra">Otra</option>
+
+							</select>
+						
+
+							<h3>Fecha de nacimiento:</h3>
+							<input type="date" class="input-lg" name="fnacimientoPerfil" value="'.$resultado["fnacimiento"].'">
+
+							<h3>Genero:</h3>
+
+							<select class="form-control input-lg" name="sexoPerfil">
+								
+								<option>'.$resultado["sexo"].'</option>
+
+								<option value="Masculino">Masculino</option>
+								<option value="Femenino">Femenino</option>
+
+							</select>
+							
+
+							<h3>Usuario:</h3>
 							<input type="text" class="input-lg" name="usuarioPerfil" value="'.$resultado["usuario"].'">
 
-							<h2>Clave:</h2>
+							<h3>Clave:</h3>
 							<input type="text" class="input-lg" name="clavePerfil" value="'.$resultado["clave"].'">
 
-							<h2>Documento:</h2>
-							<input type="text" class="input-lg" name="documentoPerfil" value="'.$resultado["documento"].'">
+							<h3>Identificación:</h3>
+							<input type="text" class="input-lg" name="documentoPerfil" value="'.$resultado["documento"].'"  maxlength="10">
 
 						</div>
 
@@ -284,7 +407,7 @@ class PacientesC{
 
 						</div>
 
-					</div>
+					</div>  
 
 				</form>';
 
@@ -337,7 +460,22 @@ class PacientesC{
 
 			$tablaBD = "pacientes";
 
-			$datosC = array("id"=>$_POST["Pid"], "nombre"=>$_POST["nombrePerfil"], "apellido"=>$_POST["apellidoPerfil"],  "correo"=>$_POST["correoPerfil"], "usuario"=>$_POST["usuarioPerfil"], "clave"=>$_POST["clavePerfil"], "documento"=>$_POST["documentoPerfil"], "foto"=>$rutaImg);
+			$datosC = array(
+				"id"=>$_POST["Pid"], 
+				"nombre"=>$_POST["nombrePerfil"], 
+				"apellido"=>$_POST["apellidoPerfil"],  
+				"correo"=>$_POST["correoPerfil"], 
+
+				"telefono"=>$_POST["telefonoPerfil"],
+				"direccion"=>$_POST["direccionPerfil"],
+				"ciudad"=>$_POST["ciudadPerfil"],
+				"fnacimiento"=>$_POST["fnacimientoPerfil"],
+				"sexo"=>$_POST["sexoPerfil"],
+				
+				"usuario"=>$_POST["usuarioPerfil"], 
+				"clave"=>$_POST["clavePerfil"], 
+				"documento"=>$_POST["documentoPerfil"], 
+				"foto"=>$rutaImg);
 
 			$resultado = PacientesM::ActualizarPerfilPacienteM($tablaBD, $datosC);
 

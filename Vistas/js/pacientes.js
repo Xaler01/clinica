@@ -31,6 +31,14 @@ $(".DT").on("click", ".EditarPaciente", function(){
 			$("#apellidoE").val(resultado["apellido"]);
 			$("#nombreE").val(resultado["nombre"]);
 			$("#documentoE").val(resultado["documento"]);
+
+			$("#correoE").val(resultado["correo"]);
+			$("#telefonoE").val(resultado["telefono"]);
+			$("#direccionE").val(resultado["direccion"]);
+			$("#ciudadE").val(resultado["ciudad"]);
+			$("#fnacimientoE").val(resultado["fnacimiento"]);
+			$("#sexoE").val(resultado["sexo"]);
+			
 			$("#usuarioE").val(resultado["usuario"]);
 			$("#claveE").val(resultado["clave"]);
 
@@ -47,7 +55,7 @@ $("#usuario").change(function(){
 
 	var usuario = $(this).val();
 	var datos = new FormData();
-	datos.append("Norepetir", usuario);
+	datos.append("Norepetir", usuario, documento);
 
 	$.ajax({
 
@@ -63,7 +71,7 @@ $("#usuario").change(function(){
 
 			if(resultado){
 
-				$("#usuario").parent().after('<div class="alert alert-danger">El usuario ya existe y se encuentra guardado.</div>');
+				$("#usuario").parent().after('<div class="alert alert-danger">El usuario o identificación ya existen. Elija otro.</div>');
 
 				$("#usuario").val("");
 
@@ -75,14 +83,14 @@ $("#usuario").change(function(){
 
 })
 
-
+//No repetir paciente por usuario ni identificacion
 $("#usuarioE").change(function(){
 
 	$(".alert").remove();
 
 	var usuario = $(this).val();
 	var datos = new FormData();
-	datos.append("Norepetir", usuario);
+	datos.append("Norepetir", usuario, documento);
 
 	$.ajax({
 
@@ -98,7 +106,7 @@ $("#usuarioE").change(function(){
 
 			if(resultado){
 
-				$("#usuarioE").parent().after('<div class="alert alert-danger">El usuario ya existe y se encuentra registrado.</div>');
+				$("#usuarioE").parent().after('<div class="alert alert-danger">El usuario o identificación ya existen. Elija otro.</div>');
 
 				$("#usuarioE").val("");
 

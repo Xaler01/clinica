@@ -2,10 +2,10 @@
 
 require_once "ConexionBD.php";
 
-class CitasM extends ConexionBD{
+class EvolucionesM extends ConexionBD{
 
 	//Pedir Cita Paciente
-	static public function EnviarCitaM($tablaBD, $datosC){
+	static public function EnviarEvolucionM($tablaBD, $datosC){
 
 		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD (
 			id_doctor, 
@@ -43,8 +43,8 @@ class CitasM extends ConexionBD{
 
 
 
-	//Mostrar Citas
-	static public function VerCitasM($tablaBD){
+	//Mostrar Evoluciones
+	static public function VerEvolucionesM($tablaBD){
 
 		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
 

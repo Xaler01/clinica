@@ -17,6 +17,9 @@ require_once "Modelos/pacientesM.php";
 require_once "Controladores/citasC.php";
 require_once "Modelos/citasM.php";
 
+require_once "Controladores/evolucionesC.php";
+require_once "Modelos/evolucionesM.php";
+
 require_once "Controladores/inicioC.php";
 require_once "Modelos/inicioM.php";
 

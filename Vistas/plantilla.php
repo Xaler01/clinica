@@ -104,6 +104,8 @@ session_start();
         $url[0] == "Ver-consultorios" || 
         $url[0] == "Doctor" || 
         $url[0] == "historial" || 
+        $url[0] == "evolucion" ||
+        $url[0] == "diagnostico" ||
         $url[0] == "perfil-Doctor" || 
         $url[0] == "perfil-D" || 
         $url[0] == "Citas" || 
@@ -289,7 +291,8 @@ session_start();
 
         var fecha = date.format();
 
-        var hora2 = ("01:00:00").split(":");
+        var hora2 = ("01:30:00").split(":");
+
 
         fecha = fecha.split("T");
 
@@ -300,17 +303,28 @@ session_start();
         var h1 = parseFloat(hora[0]);
         var h2 = parseFloat(hora2[0]);
 
+        //
+       // var min1 = parseFloat(hora[2])
+       // var min2 = ("30");
+       // var minFinal = min1+min2;
+        //
+
         var horaFinal = h1+h2;
+        
 
         $('#CitaModal').modal();
     
         $('#fechaC').val(dia);
         
         $('#horaC').val(h1+":00:00");
+        //$('#horaC').val(h1);
 
         $('#fyhIC').val(fecha[0]+" "+h1+":00:00");
+        //$('#fyhIC').val(fecha[0]+" "+h1+":"+min1+":00");
 
         $('#fyhFC').val(fecha[0]+" "+horaFinal+":00:00");
+        //$('#fyhFC').val(fecha[0]+" "+horaFinal+":"+minFinal+":00");
+
         
       }
 

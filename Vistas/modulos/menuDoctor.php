@@ -29,6 +29,15 @@
           </a>
         </li>
 
+        <li>
+        <?php
+        echo '  <a href="http://localhost/clinica/evolucion/'.$_SESSION["id"].'">';
+        ?>
+            <i class="fa fa-bed"></i>
+            <span>Evoluciones</span>
+          </a>
+        </li>
+
       </ul>
 
     </section>

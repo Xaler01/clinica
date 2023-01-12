@@ -1,9 +1,9 @@
 <?php
 
-class CitasC{
+class EvolucionC{
 
-	//Pedir Cita Paciente
-	public function EnviarCitaC(){
+	//Nueva Evolucion Paciente
+	public function EnviarEvolucionC(){
 
 		if(isset($_POST["Did"])){
 
@@ -11,14 +11,7 @@ class CitasC{
 
 			$Did = substr($_GET["url"], 7);
 
-			$datosC = array(
-				"Did"=>$_POST["Did"], 
-				"Pid"=>$_POST["Pid"], 
-				"nyaC"=>$_POST["nyaC"], 
-				"Cid"=>$_POST["Cid"], 
-				"documentoC"=>$_POST["documentoC"], 
-				"fyhIC"=>$_POST["fyhIC"], 
-				"fyhFC"=>$_POST["fyhFC"]);
+			$datosC = array("Did"=>$_POST["Did"], "Pid"=>$_POST["Pid"], "nyaC"=>$_POST["nyaC"], "Cid"=>$_POST["Cid"], "documentoC"=>$_POST["documentoC"], "fyhIC"=>$_POST["fyhIC"], "fyhFC"=>$_POST["fyhFC"]);
 
 			$resultado = CitasM::EnviarCitaM($tablaBD, $datosC);
 
@@ -38,12 +31,12 @@ class CitasC{
 
 
 
-	//Mostrar Citas
-	public function VerCitasC(){
+	//Mostrar Evolucion de pacientes
+	public function VerEvolucionC(){
 
-		$tablaBD = "citas";
+		$tablaBD = "evoluciones";
 
-		$resultado = CitasM::VerCitasM($tablaBD);
+		$resultado = evolucionesM::VerEvolucionesM($tablaBD);
 
 		return $resultado;
 

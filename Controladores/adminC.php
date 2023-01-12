@@ -63,13 +63,13 @@ class AdminC{
 				<td>'.$resultado["nombre"].'</td>
 				<td>'.$resultado["apellido"].'</td>';
 
-				if($resultado["foto"] =! ""){
+				if($resultado["foto"] == ""){
 
-					echo '<td><img src="'.$resultado["foto"].'" class="img-responsive" width="40px"></td>';
-
+					echo '<td><img src="/Vistas/img/defecto.png" width="40px"></td>';
+					
 				}else{
 
-					echo '<td><img src="http://localhost/clinica/Vistas/img/defecto.png" class="img-responsive" width="40px"></td>';
+					echo '<td><img src="'.$resultado["foto"].'" width="40px"></td>';
 
 				}
 

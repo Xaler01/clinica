@@ -44,8 +44,17 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<th>N°</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
-							<th>Foto</th>
 							<th>Especialidad</th>
+							
+							<th>Genero</th>
+							<th>Identificación</th>
+							<th>Correo</th>
+							<th>Telefono</th>
+							<th>Dirección</th>
+							<th>Ciudad de Residencia</th>
+							<th>Fecha de Nacimiento</th>
+
+							<th>Foto</th>
 							<th>Usuario</th>
 							<th>Contraseña</th>
 							<th>Editar / Borrar</th>
@@ -64,12 +73,31 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						$resultado = DoctoresC::VerDoctoresC($columna, $valor);
 
 						foreach ($resultado as $key => $value) {
-							
+							//Datos de la tablas Doctores
 							echo '<tr>
 							
 									<td>'.($key+1).'</td>
 									<td>'.$value["apellido"].'</td>
 									<td>'.$value["nombre"].'</td>';
+
+									$columna = "id";
+									$valor = $value["id_consultorio"];
+
+									$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+									echo '
+									<td>'.$consultorio["nombre"].'</td>
+
+									<td>'.$value["sexo"].'</td>
+									<td>'.$value["documento"].'</td>
+									<td>'.$value["correo"].'</td>
+									<td>'.$value["telefono"].'</td>
+									<td>'.$value["direccion"].'</td>
+									<td>'.$value["ciudad"].'</td>
+									<td>'.$value["fnacimiento"].'</td>
+
+									';
+
 
 									if($value["foto"] == ""){
 
@@ -82,19 +110,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 									}
 
 
-									$columna = "id";
-									$valor = $value["id_consultorio"];
-
-									$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
-
-									echo '<td>'.$consultorio["nombre"].'</td>
+									echo '
 
 									<td>'.$value["usuario"].'</td>
 
 									<td>'.$value["clave"].'</td>
 
 									<td>
-										
+										<!-- //Actualizar o Eliminar Doctor-->
 										<div class="btn-group">
 											
 											
@@ -129,7 +152,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 </div>
 
 
-
+</--//Maquetado para CREAR DOCTORES-->
 <div class="modal fade" rol="dialog" id="CrearDoctor">
 	
 	<div class="modal-dialog">
@@ -144,7 +167,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						
 						<div class="form-group">
 							
-							<h2>Apellido:</h2>
+							<h3>Apellido:</h3>
 
 							<input type="text" class="form-control input-lg" name="apellido" required>
 
@@ -154,16 +177,74 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						<div class="form-group">
 							
-							<h2>Nombre:</h2>
+							<h3>Nombre:</h3>
 
 							<input type="text" class="form-control input-lg" name="nombre" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Identificación:</h3>
+
+							<input type="text" class="form-control input-lg" name="documento" maxlength="10" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Correo:</h3>
+
+							<input type="email" class="form-control input-lg" name="correo" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Telefono:</h3>
+
+							<input type="text" class="form-control input-lg" name="telefono" maxlength="15" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Dirección:</h3>
+
+							<input type="text" class="form-control input-lg" name="direccion" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Ciudad de residencia:</h3>
+
+							<select class="form-control input-lg" name="ciudad" required>
+								
+								<option>Seleccionar...</option>
+
+								<option value="El Oro">El Oro</option>
+								<option value="Quito">Quito</option>
+								<option value="Loja">Loja</option>
+								<option value="Tulcan">Tulcan</option>
+								<option value="Otra">Otra</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Fecha de nacimiento:</h3>
+
+							<input type="date" class="form-control input-lg" name="fnacimiento" required>
 
 						</div>
 
 
 						<div class="form-group">
 							
-							<h2>Sexo:</h2>
+							<h3>Genero:</h3>
 
 							<select class="form-control input-lg" name="sexo">
 								
@@ -179,7 +260,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						<div class="form-group">
 							
-							<h2>Consultorio:</h2>
+							<h3>Consultorio:</h3>
 
 							<select class="form-control input-lg" name="consultorio">
 								
@@ -204,10 +285,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						</div>
 
-
 						<div class="form-group">
 							
-							<h2>Usuario:</h2>
+							<h3>Usuario:</h3>
 
 							<input type="text" class="form-control input-lg" name="usuario" required>
 
@@ -215,7 +295,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						<div class="form-group">
 							
-							<h2>Contraseña:</h2>
+							<h3>Contraseña:</h3>
 
 							<input type="text" class="form-control input-lg" name="clave" required>
 
@@ -249,7 +329,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 </div>
 
-
+</--//Maquetado para EDITAR DOCTORES-->
 <div class="modal fade" rol="dialog" id="EditarDoctor">
 	
 	<div class="modal-dialog">
@@ -265,10 +345,11 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 						<div class="form-group">
 							
 							<h2>Apellido:</h2>
-
-							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE" required>
-
 							<input type="hidden" id="Did" name="Did">
+
+							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE"  required>
+
+							
 
 						</div>
 
@@ -280,10 +361,60 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 
 						</div>
 
+						
+						<div class="form-group">
+							
+							<h3>Correo:</h3>
+
+							<input type="mail" class="form-control input-lg" id="correoE" name="correoE" required>
+
+						</div>
 
 						<div class="form-group">
 							
-							<h2>Sexo:</h2>
+							<h3>Telefono:</h3>
+
+							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Dirección:</h3>
+
+							<input type="text" class="form-control input-lg" id="direccionE" name="direccionE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Ciudad de residencia:</h3>
+
+							<select class="form-control input-lg" name="ciudadE" required>
+								
+								<option>Seleccionar...</option>
+
+								<option value="El Oro">El Oro</option>
+								<option value="Quito">Quito</option>
+								<option value="Loja">Loja</option>
+								<option value="Tulcan">Tulcan</option>
+								<option value="Otra">Otra</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Fecha de nacimiento:</h3>
+
+							<input type="date" class="form-control input-lg" id="fnacimientoE" name="fnacimientoE" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Genero:</h3>
 
 							<select class="form-control input-lg" name="sexoE" required="">
 								
@@ -293,6 +424,14 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 								<option value="Femenino">Femenino</option>
 
 							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Identificación:</h3>
+
+							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
 
 						</div>
 

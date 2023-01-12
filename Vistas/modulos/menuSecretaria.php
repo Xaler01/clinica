@@ -31,6 +31,18 @@
             <span>Pacientes</span>
           </a>
         </li>
+        
+//        <li>
+//          <?php
+//         // echo '<a href="http://localhost/clinica/Citas/'.$_SESSION["id"].'">';
+//          echo '<a href="http://localhost/clinica/Ver-consultorios">';
+//
+//          ?>
+//          
+//            <i class="fa fa-medkit"></i>
+//            <span>Citas</span>
+//          </a>
+//        </li>
 
       </ul>
 
