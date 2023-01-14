@@ -47,36 +47,36 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 			</--// LEER la tabla con los pacientes creados en la tabla "pacientes" Muestra botones para EDITAR O ACTUALIZAR paciente y para BORRAR llamando a estas funciones -->
 			<div class="box-body">
 			</--//Tabla contenedora-->
-				<table class="table table-bordered table-hover table-striped dt-responsive DT">
+			<table class="table table-bordered table-hover table-striped dt-responsive DT">
 				</--//Cabecera de la tabla-->
-					<thead>
+				<thead>
 					</--//Titulo de las columnas de la tabla-->
-						<tr>
-							 
-							<th>N°</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Identificación</th>
+					<tr>
+						
+						<th>N°</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Identificación</th>
 
-							<th>Correo</th>
-							<th>Telefono</th>
-							<th>Dirección</th>
-							<th>Ciudad</th>
-							<th>F. nacimimiento</th>
-							<th>Genero</th>
+						<th>Correo</th>
+						<th>Telefono</th>
+						<th>Dirección</th>
+						<th>Ciudad</th>
+						<th>F. nacimimiento</th>
+						<th>Genero</th>
 
-							<th>Foto</th>
-							<th>Usuario</th>
-							<th>Contraseña</th>
-							<th>Editar / Borrar</th>
+						<th>Foto</th>
+						<th>Usuario</th>
+						<th>Contraseña</th>
+						<th>Editar / Borrar</th>
 
-						</tr>
+					</tr>
 
-					</thead>
-					</--//Datos de la tabla-->
-					<tbody>
+				</thead>
+				</--//Cuerpo de la tabla-->
+				<tbody>
 
-						<?php
+					<?php
 
 						$columna = null;
 						$valor = null;
@@ -84,63 +84,63 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						$resultado = PacientesC::VerPacientesC($columna, $valor);
 						//Trae los datos de la tabla pacientes y llena la tabla
 						foreach ($resultado as $key => $value) {
-							
-							echo '<tr>
-					
-									<td>'.($key+1).'</td>
-									<td>'.$value["nombre"].'</td>
-									<td>'.$value["apellido"].'</td>
-									<td>'.$value["documento"].'</td>
+						
+						echo '<tr>
+				
+								<td>'.($key+1).'</td>
+								<td>'.$value["nombre"].'</td>
+								<td>'.$value["apellido"].'</td>
+								<td>'.$value["documento"].'</td>
+								
+								<td>'.$value["correo"].'</td>
+
+								<td>'.$value["telefono"].'</td>
+								<td>'.$value["direccion"].'</td>
+								<td>'.$value["ciudad"].'</td>
+								<td>'.$value["fnacimiento"].'</td>
+								<td>'.$value["sexo"].'</td>
+
+								';
+
+								if($value["foto"] == ""){
+
+									echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
+
+								}else{
+
+									echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
+
+								}
+								
+
+								echo '<td>'.$value["usuario"].'</td>
+
+								<td>'.$value["clave"].'</td>
+
+								<td>
 									
-									<td>'.$value["correo"].'</td>
-
-									<td>'.$value["telefono"].'</td>
-									<td>'.$value["direccion"].'</td>
-									<td>'.$value["ciudad"].'</td>
-									<td>'.$value["fnacimiento"].'</td>
-									<td>'.$value["sexo"].'</td>
-
-									';
-
-									if($value["foto"] == ""){
-
-										echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
-
-									}else{
-
-										echo '<td><img src="'.$value["foto"].'" width="40px"></td>';
-
-									}
-									
-
-									echo '<td>'.$value["usuario"].'</td>
-
-									<td>'.$value["clave"].'</td>
-
-									<td>
+									<div class="btn-group">
 										
-										<div class="btn-group">
-											
-											
-											<button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i> Editar</button>
-											
-											<button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
-											
+										
+										<button class="btn btn-success EditarPaciente" Pid="'.$value["id"].'" data-toggle="modal" data-target="#EditarPaciente"><i class="fa fa-pencil"></i> Editar</button>
+										
+										<button class="btn btn-danger EliminarPaciente" Pid="'.$value["id"].'" imgP="'.$value["foto"].'"><i class="fa fa-times"></i> Borrar</button>
+										
 
-										</div>
+									</div>
 
-									</td>
+								</td>
 
-								</tr>';
+							</tr>';
 
 						}
 
-						?>
+					?>
 
 
-					</tbody>
+				</tbody>
 
-				</table>
+			</table>
 
 			</div>
 
@@ -336,7 +336,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							
 							<h3>Identificación:</h3>
 
-							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
+							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" maxlength="10" required>
 
 						</div>
 
@@ -353,7 +353,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							
 							<h3>Telefono:</h3>
 
-							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" required>
+							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" maxlength="15" required>
 
 						</div>
 
@@ -405,10 +405,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 							</select>
 
 						</div>
-
 						
-						
-
 						<div class="form-group">
 							
 							<h3>Usuario:</h3>

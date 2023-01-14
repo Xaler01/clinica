@@ -253,7 +253,8 @@ class DoctoresC{
 
 
 	//Editar Perfil Doctor
-	public function EditarPerfilDoctorC(){
+	public function 
+	EditarPerfilDoctorC(){
 
 		$tablaBD = "doctores";
 		$id = $_SESSION["id"];
