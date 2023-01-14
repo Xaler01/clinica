@@ -104,8 +104,9 @@ session_start();
         $url[0] == "Ver-consultorios" || 
         $url[0] == "Doctor" || 
         $url[0] == "historial" || 
-        $url[0] == "evolucion" ||
+        $url[0] == "agenda" ||
         $url[0] == "diagnostico" ||
+        $url[0] == "estadisticas" ||
         $url[0] == "perfil-Doctor" || 
         $url[0] == "perfil-D" || 
         $url[0] == "Citas" || 

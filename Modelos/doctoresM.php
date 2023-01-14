@@ -125,7 +125,6 @@ class DoctoresM extends ConexionBD{
 		apellido = :apellido, 
 		nombre = :nombre, 
 		documento = :documento, 
-
 		correo = :correo,
 		telefono = :telefono,
 		direccion = :direccion,

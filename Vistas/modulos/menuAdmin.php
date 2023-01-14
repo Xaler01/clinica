@@ -38,6 +38,12 @@
             <span>Pacientes</span>
           </a>
         </li>
+        <li>
+          <a href="http://localhost/clinica/estadisticas">
+            <i class="fa fa-book"></i>
+            <span>Estadisticas</span>
+          </a>
+        </li>
 
       </ul>
 

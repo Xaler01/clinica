@@ -9,7 +9,6 @@ $(".DT").on("click", ".EliminarPaciente", function(){
 
 
 $(".DT").on("click", ".EditarPaciente", function(){
-
 	var Pid = $(this).attr("Pid");
 	var datos = new FormData();
 

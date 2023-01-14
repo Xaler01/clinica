@@ -15,7 +15,7 @@
           <a href="http://localhost/clinica/Ver-consultorios">
 
             <i class="fa fa-medkit"></i>
-            <span>Especialidades</span>
+            <span>Nueva cita</span>
           </a>
         </li>
 

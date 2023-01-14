@@ -374,7 +374,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							
 							<h3>Telefono:</h3>
 
-							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" required>
+							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" maxlength="13" required>
 
 						</div>
 
@@ -431,7 +431,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							
 							<h3>Identificación:</h3>
 
-							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" required>
+							<input type="text" class="form-control input-lg" id="documentoE" name="documentoE" maxlength="10" required>
 
 						</div>
 

@@ -130,7 +130,7 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 									}
 
 								?>
-
+									
 								</select>
 								
 
@@ -140,8 +140,8 @@ if($_SESSION["id"] != substr($_GET["url"], 6)){
 							
 							<h2>Documento:</h2>
 
-							<input type="text" class="form-control input-lg" name="documentoP" value="">							
-
+							<input type="text" class="form-control input-lg" name="documentoP" value="" required>							
+							
 							<!--Fin Obtener dopcumento-->
 
 						</div>

@@ -14,7 +14,9 @@ class CitasC{
 			$datosC = array(
 				"Did"=>$_POST["Did"], 
 				"Pid"=>$_POST["Pid"], 
+				"estado"=>$_POST["estado"],
 				"nyaC"=>$_POST["nyaC"], 
+				
 				"Cid"=>$_POST["Cid"], 
 				"documentoC"=>$_POST["documentoC"], 
 				"fyhIC"=>$_POST["fyhIC"], 
@@ -49,6 +51,27 @@ class CitasC{
 
 	}
 
+	//Mostrar Agenda
+	public function VerAgendaC(){
+
+		$tablaBD = "citas";
+
+		$resultado = CitasM::VerAgendaM($tablaBD);
+
+		return $resultado;
+
+	}		
+
+	
+	public function ContarEspecialidadesC(){
+
+		$tablaBD = "citas";
+
+		$resultado = CitasM::ContarEspecialidadesM($tablaBD);
+
+		return $resultado;
+
+	}
 
 	//Pedir cita como doctor
 	public function PedirCitaDoctorC(){
@@ -59,7 +82,14 @@ class CitasC{
 
 			$Did = substr($_GET["url"], 6);
 
-			$datosC = array("Did"=>$_POST["Did"], "Cid"=>$_POST["Cid"], "nombreP"=>$_POST["nombreP"], "documentoP"=>$_POST["documentoP"], "fyhIC"=>$_POST["fyhIC"], "fyhFC"=>$_POST["fyhFC"]);
+			$datosC = array(
+				"Did"=>$_POST["Did"],
+				"Pid"=>$_POST["Pid"],
+				"nombreP"=>$_POST["nombreP"], 
+				"Cid"=>$_POST["Cid"], 
+				"documentoP"=>$_POST["documentoP"], 
+				"fyhIC"=>$_POST["fyhIC"], 
+				"fyhFC"=>$_POST["fyhFC"]);
 
 			$resultado = CitasM::PedirCitaDoctorM($tablaBD, $datosC);
 
@@ -72,6 +102,36 @@ class CitasC{
 
 			}
 
+		}
+
+	}
+
+	//Pedir Cita Paciente
+	public function ActualizarEstadoCitaC(){
+		
+		if(isset($_POST["Cid"])){
+			
+			$tablaBD = "citas";
+
+			$Citaid = substr($_GET["url"], 12);
+
+			$datosC = array(
+				"id"=>$Citaid,
+				"estado"=>$_POST["estadoC"]				
+				);
+				
+				
+			$resultado = CitasM::ActualizarEstadoCitaM($tablaBD, $datosC);
+			
+			if($resultado == true){
+				
+				
+				echo '<script>
+				
+				window.location = "diagnostico/"'.$Citaid.';
+				</script>';
+
+			}
 		}
 
 	}

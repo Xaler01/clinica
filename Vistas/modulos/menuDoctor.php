@@ -31,10 +31,10 @@
 
         <li>
         <?php
-        echo '  <a href="http://localhost/clinica/evolucion/'.$_SESSION["id"].'">';
+        echo '  <a href="http://localhost/clinica/agenda/'.$_SESSION["id"].'">';
         ?>
             <i class="fa fa-bed"></i>
-            <span>Evoluciones</span>
+            <span>Agenda</span>
           </a>
         </li>
 

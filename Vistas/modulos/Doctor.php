@@ -97,6 +97,9 @@ if($_SESSION["rol"] != "Paciente" &&$_SESSION["rol"] != "Secretaria"){
 
 								<input type="hidden" name="Did" value="'.$resultado["id"].'">
 								<input type="hidden" name="Pid" value="'.$_SESSION["id"].'">
+
+								
+								<input type="hidden" name="estado" value="Reservada">
 								
 
 							</div>
