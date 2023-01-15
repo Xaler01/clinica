@@ -65,13 +65,33 @@ class CitasC{
 	
 	public function ContarEspecialidadesC(){
 
-		$tablaBD = "citas";
+		$tablaBD = "especialidad_atendidos";
 
 		$resultado = CitasM::ContarEspecialidadesM($tablaBD);
 
 		return $resultado;
 
 	}
+
+	public function MedicoAtencionesC(){
+
+		$tablaBD = "medico_atenciones";
+
+		$resultado = CitasM::MedicoAtencionesM($tablaBD);
+
+		return $resultado;
+
+	}
+	public function MedicoEspAtencionesC(){
+
+		$tablaBD = "medico_especialidad_atenciones";
+
+		$resultado = CitasM::MedicoEspAtencionesM($tablaBD);
+
+		return $resultado;
+
+	}
+	
 
 	//Pedir cita como doctor
 	public function PedirCitaDoctorC(){

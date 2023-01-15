@@ -37,6 +37,7 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 							<th>Fecha y Hora</th>
 							<th>Doctor</th>
 							<th>Especialidad</th>
+							<th>Estado</th>
 
 						</tr>
 
@@ -69,7 +70,8 @@ if($_SESSION["id"] != substr($_GET["url"], 10)){
 
 									$consultorio = ConsultoriosC::VerConsultoriosC($columna, $valor);
 
-									echo '<td>'.$consultorio["nombre"].'</td>';
+									echo '<td>'.$consultorio["nombre"].'</td>
+										  <td>'.$value["estado"].'</td>';
 
 								echo '</tr>';
 

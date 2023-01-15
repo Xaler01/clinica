@@ -15,5 +15,10 @@ Reprte mes - Citas agendadas.
 
 Es necesario descargar AdminLTE-2.4.2 y copiar las carpetas "bower_components" y "dist" en la "vistas" del proyecto. 
 
-En XAMPP se debe importar la ultima version de la carpeta BD, la cual contiene los datoz actualizados al momento de cada actualización.
+En XAMPP se debe importar la ultima version de la carpeta BD, la cual contiene los datos actualizados al momento de cada actualización.
 
+Version actual: clinica V.0.0.6
+Base D. actual: clinica V.0.0.6
+
+Version próxima: clinica V.0.0.7
+Base D. próxima: clinicaBD V.0.0.7

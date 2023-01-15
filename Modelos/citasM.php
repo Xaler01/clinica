@@ -80,7 +80,36 @@ class CitasM extends ConexionBD{
 		//Mostrar Citas
 		static public function ContarEspecialidadesM($tablaBD){
 
-			$pdo = ConexionBD::cBD()->prepare("SELECT COUNT(*) FROM $tablaBD  WHERE id_consultorio = '1' AND estado = 'Reservada'" );
+			//$pdo = ConexionBD::cBD()->prepare("SELECT COUNT(*) FROM $tablaBD  WHERE id_consultorio = '1' AND estado = 'Reservada'" );
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ");
+	
+			$pdo -> execute();
+	
+			return $pdo -> fetchAll();
+	
+			$pdo -> close();
+			$pdo = null;
+	
+		}
+
+		static public function MedicoAtencionesM($tablaBD){
+
+			//$pdo = ConexionBD::cBD()->prepare("SELECT COUNT(*) FROM $tablaBD  WHERE id_consultorio = '1' AND estado = 'Reservada'" );
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+	
+			$pdo -> execute();
+	
+			return $pdo -> fetchAll();
+	
+			$pdo -> close();
+			$pdo = null;
+	
+		}
+
+		static public function MedicoEspAtencionesM($tablaBD){
+
+			//$pdo = ConexionBD::cBD()->prepare("SELECT COUNT(*) FROM $tablaBD  WHERE id_consultorio = '1' AND estado = 'Reservada'" );
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ORDER BY especialidad ASC");
 	
 			$pdo -> execute();
 	
