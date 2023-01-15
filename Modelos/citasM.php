@@ -120,6 +120,19 @@ class CitasM extends ConexionBD{
 	
 		}
 
+		static public function MesAtendidosM($tablaBD){
+
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD ");
+	
+			$pdo -> execute();
+	
+			return $pdo -> fetchAll();
+	
+			$pdo -> close();
+			$pdo = null;
+	
+		}
+		
 		
 
 
