@@ -9,16 +9,14 @@ Para el control de acceso se ocupa PHP para restrigir la vista a cada rol depend
 Los perfiles de cada rol, tiene su intefaz para autogestionar los datos básicos su propio usuario.
 
 El rol administrador puede gestionar la interfaz inicio para todos los usuarios y ver las "Estadisticas" del sistema con la vista 
-Especialidades - Citas Atendidos, se encuentra pendiente 
-Médico - Citas Atendidas y
-Reprte mes - Citas agendadas.
+Especialidades - Citas Atendidos, Médico - Citas Atendidas y Reprte mes - Citas agendadas.
 
 Es necesario descargar AdminLTE-2.4.2 y copiar las carpetas "bower_components" y "dist" en la "vistas" del proyecto. 
 
 En XAMPP se debe importar la ultima version de la carpeta BD, la cual contiene los datos actualizados al momento de cada actualización.
 
-Version actual: clinica V.0.0.6
-Base D. actual: clinica V.0.0.6
+Version actual: clinica V.0.0.8
+Base D. actual: clinicaBD V.0.0.8
 
-Version próxima: clinica V.0.0.7
-Base D. próxima: clinicaBD V.0.0.7
+Version próxima: clinica V.0.0.9
+Base D. próxima: clinicaBD V.0.0.9

@@ -91,6 +91,18 @@ class CitasC{
 		return $resultado;
 
 	}
+
+	public function MesAtendidos(){
+
+		$tablaBD = "mes_atendidos";
+
+		$resultado = CitasM::MesAtendidosM($tablaBD);
+
+		return $resultado;
+
+	}
+
+	
 	
 
 	//Pedir cita como doctor

@@ -24,14 +24,15 @@ if($_SESSION["rol"] != "Administrador"){
 
 	<section class="content">
 		
-		<div class="box">
+		<div class="box" >
 			
-			<div class="box-body">
+             <!--inicio REPORTE 1 -->
+			<div class="box-body " >
                 <b>Reporte ESPECIALIDAD-ATENCIONES</b><br><br>
-				<table class="table table-bordered table-hover table-striped dt-responsive DT">
+				<table class="table table-bordered table-hover table-striped dt-responsive DT  ">
                 
 					<!--//Menu con los datos que se van a mostrar-->
-					<thead>
+					<thead >
 						
 						<tr>
 							
@@ -43,7 +44,7 @@ if($_SESSION["rol"] != "Administrador"){
 
 					</thead>
 
-					<tbody>
+					<tbody >
 
 						<?php
 							
@@ -65,21 +66,24 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR PRIMER REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                        <a href="imprimirf1" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <!--I<button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generate PDF
-                        </button>
+                        </button>-->
                     </div>
-             </div>
+            </div>
+            <!--fin REPORTE 1 -->
 
             <!--inicio REPORTE 2 -->
+ <!--           
              <br><br>A
             <div class="box-body">
                 <b>Reporte MEDICO-ATENCIONES</b><br><br>
 				<table class="table table-bordered table-hover table-striped dt-responsive DT">
-                
+  -->               
 					<!--//Menu con los datos que se van a mostrar-->
-					<thead>
+<!--
+                    <thead>
 						
 						<tr>
 							
@@ -92,34 +96,35 @@ if($_SESSION["rol"] != "Administrador"){
 					</thead>
 
 					<tbody>
-
-						<?php
-							
-                         $resultado = CitasC::MedicoAtencionesC();
-
-                            foreach ($resultado as $key => $value) {
-                                echo'
-                                <tr>
-                                <td>'.$value['nombre'].' '.$value['apellido'].'</td>
-                                <td>'.$value['atenciones'].'</td>';
-                            }
-						?>
-                         
+ -->
+  <!--   
+//						<?php
+//							
+//                         $resultado = CitasC::MedicoAtencionesC();
+//
+//                            foreach ($resultado as $key => $value) {
+//                                echo'
+//                                <tr>
+//                                <td>'.$value['nombre'].' '.$value['apellido'].'</td>
+//                                <td>'.$value['atenciones'].'</td>';
+//                            }
+//						?>
+                       
 					</tbody>
 
                    
 
 				</table>
+ -->                
                 <!--IMPRIMIR SEGUNDO REPORTE-->
+<!--
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                        </button>
+                        <a href="imprimirf2" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+
                     </div>
              </div>
-
+ -->
             <!--fin REPORTE 2 -->
 
             <!--inicio REPORTE 3 -->
@@ -165,10 +170,7 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR tercer REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                        </button>
+                        <a href="imprimirf2" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                     </div>
              </div>
 
@@ -186,7 +188,8 @@ if($_SESSION["rol"] != "Administrador"){
 						
 						<tr>
 							
-							<th>MES</th>
+                            <th>MES</th>
+							<th>NOMBRE</th>
                             <th>ATENDIDOS</th>
 				
 
@@ -198,14 +201,17 @@ if($_SESSION["rol"] != "Administrador"){
 
 						<?php
 							
-                         $resultado = CitasC::MedicoEspAtencionesC();
+                         $resultado = CitasC::MesAtendidos();
 
                             foreach ($resultado as $key => $value) {
                                 echo'
-                                <tr>
-                                <td>'.$value['nombre'].' '.$value['apellido'].'</td>
-                                <td>'.$value['especialidad'].'</td>
-                                <td>'.$value['atenciones'].'</td>';
+                                <tr>';
+
+                                                             
+                                
+                                echo '<td>'.$value['id_mes'].'</td>
+                                <td>'.$value['mes'].'</td>
+                              <td>'.$value['atendidos'].'</td>';
                             }
 						?>
                          
@@ -217,10 +223,7 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR tercer REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-download"></i> Generate PDF
-                        </button>
+                        <a href="imprimirf3" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                     </div>
              </div>
 
