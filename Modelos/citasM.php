@@ -52,7 +52,7 @@ class CitasM extends ConexionBD{
 	//Mostrar Citas
 	static public function VerCitasM($tablaBD){
 
-		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD where estado = 'Reservada'");
 
 		$pdo -> execute();
 
@@ -66,7 +66,7 @@ class CitasM extends ConexionBD{
 		//Mostrar Citas
 		static public function VerAgendaM($tablaBD){
 
-			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+			$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD where estado = 'Reservada'" );
 	
 			$pdo -> execute();
 	

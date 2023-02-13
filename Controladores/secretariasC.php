@@ -178,7 +178,7 @@ class SecretariasC{
 
 				if($_FILES["imgP"]["type"] == "image/jpeg"){
 
-					$nombre = mt_rand(10,99);
+					$nombre = mt_rand(10,999);
 
 					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".jpg";
 
@@ -190,7 +190,7 @@ class SecretariasC{
 
 				if($_FILES["imgP"]["type"] == "image/png"){
 
-					$nombre = mt_rand(10,99);
+					$nombre = mt_rand(10,999);
 
 					$rutaImg = "Vistas/img/Secretarias/S-".$nombre.".png";
 
@@ -205,7 +205,12 @@ class SecretariasC{
 
 			$tablaBD = "secretarias";
 
-			$datosC = array("id"=>$_POST["idP"], "usuario"=>$_POST["usuarioP"], "apellido"=>$_POST["apellidoP"], "nombre"=>$_POST["nombreP"], "clave"=>$_POST["claveP"], "foto"=>$rutaImg);
+			$datosC = array("id"=>$_POST["idP"], 
+							"usuario"=>$_POST["usuarioP"], 
+							"apellido"=>$_POST["apellidoP"], 
+							"nombre"=>$_POST["nombreP"], 
+							"clave"=>$_POST["claveP"], 
+							"foto"=>$rutaImg);
 
 			$resultado = SecretariasM::ActualizarPerfilSecretariaM($tablaBD, $datosC);
 
@@ -242,7 +247,11 @@ class SecretariasC{
 
 			$tablaBD = "secretarias";
 
-			$datosC = array("nombre"=>$_POST["nombre"], "apellido"=>$_POST["apellido"], "usuario"=>$_POST["usuario"], "clave"=>$_POST["clave"], "rol"=>$_POST["rolS"]);
+			$datosC = array("nombre"=>$_POST["nombre"], 
+							"apellido"=>$_POST["apellido"], 
+							"usuario"=>$_POST["usuario"], 
+							"clave"=>$_POST["clave"], 
+							"rol"=>$_POST["rolS"]);
 
 			$resultado = SecretariasM::CrearSecretariaM($tablaBD, $datosC);
 

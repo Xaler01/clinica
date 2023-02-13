@@ -59,7 +59,6 @@ class InicioC{
 	}
 
 
-
 	//Editar Perfil
 	public function EditarInicioC(){
 
@@ -150,7 +149,6 @@ class InicioC{
 			</form>';
 
 	}
-
 
 
 	public function ActualizarInicioC(){

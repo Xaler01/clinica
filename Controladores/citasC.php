@@ -38,8 +38,6 @@ class CitasC{
 	}
 
 
-
-
 	//Mostrar Citas
 	public function VerCitasC(){
 
@@ -50,6 +48,7 @@ class CitasC{
 		return $resultado;
 
 	}
+
 
 	//Mostrar Agenda
 	public function VerAgendaC(){
@@ -62,7 +61,7 @@ class CitasC{
 
 	}		
 
-	
+	//Estadisticas atenciones por especialidad.
 	public function ContarEspecialidadesC(){
 
 		$tablaBD = "especialidad_atendidos";
@@ -73,6 +72,8 @@ class CitasC{
 
 	}
 
+
+	//Estadisticas Atenciones por medico
 	public function MedicoAtencionesC(){
 
 		$tablaBD = "medico_atenciones";
@@ -82,6 +83,9 @@ class CitasC{
 		return $resultado;
 
 	}
+
+	
+	//Estadisticas Atenciones por cada medico con especialidad
 	public function MedicoEspAtencionesC(){
 
 		$tablaBD = "medico_especialidad_atenciones";
@@ -92,6 +96,8 @@ class CitasC{
 
 	}
 
+
+	//Estadisticas atenciones por mes
 	public function MesAtendidos(){
 
 		$tablaBD = "mes_atendidos";
@@ -103,8 +109,6 @@ class CitasC{
 	}
 
 	
-	
-
 	//Pedir cita como doctor
 	public function PedirCitaDoctorC(){
 
@@ -137,6 +141,7 @@ class CitasC{
 		}
 
 	}
+
 
 	//Pedir Cita Paciente
 	public function ActualizarEstadoCitaC(){

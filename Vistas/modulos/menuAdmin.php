@@ -41,7 +41,7 @@
         <li>
           <a href="http://localhost/clinica/estadisticas">
             <i class="fa fa-book"></i>
-            <span>Estadisticas</span>
+            <span>Estadísticas</span>
           </a>
         </li>
 

@@ -18,7 +18,7 @@ if($_SESSION["rol"] != "Administrador"){
 	
 	<section class="content-header">
 		
-		<h1>Estadisticas</h1>
+		<h1>Estadísticas</h1>
 
 	</section>
 
@@ -66,7 +66,7 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR PRIMER REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="imprimirf1" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a href="imprimirf1" target="_self" class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
                         <!--I<button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
                             <i class="fa fa-download"></i> Generate PDF
                         </button>-->
@@ -120,7 +120,7 @@ if($_SESSION["rol"] != "Administrador"){
 <!--
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="imprimirf2" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a href="imprimirf2" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
 
                     </div>
              </div>
@@ -128,7 +128,7 @@ if($_SESSION["rol"] != "Administrador"){
             <!--fin REPORTE 2 -->
 
             <!--inicio REPORTE 3 -->
-            <br><br>B
+            <br><br>
             <div class="box-body">
                 <b>Reporte DOCTOR-ESPECIALIDAD-ATENCIONES</b><br><br>
 				<table class="table table-bordered table-hover table-striped dt-responsive DT">
@@ -170,7 +170,7 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR tercer REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="imprimirf2" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a href="imprimirf2" target="_self" class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
                     </div>
              </div>
 
@@ -178,7 +178,7 @@ if($_SESSION["rol"] != "Administrador"){
             <!--FIN REPORTE 3 -->
 
             <!--inicio REPORTE 4 -->
-            <br><br>c
+            <br><br>
             <div class="box-body">
                 <b>Reporte MES-ATENCIONES</b><br><br>
 				<table class="table table-bordered table-hover table-striped dt-responsive DT">
@@ -223,7 +223,7 @@ if($_SESSION["rol"] != "Administrador"){
                 <!--IMPRIMIR tercer REPORTE-->
                 <div class="row no-print">
                     <div class="col-xs-12">
-                        <a href="imprimirf3" target="_self" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <a href="imprimirf3" target="_self" class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
                     </div>
              </div>
 

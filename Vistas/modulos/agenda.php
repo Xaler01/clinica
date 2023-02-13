@@ -50,7 +50,8 @@ if($_SESSION["id"] != substr($_GET["url"], 7)){
 
 						<?php
 							//Permite ver los datos que se ingresan en el thead
-                            $resultado = CitasC::VerCitasC();
+                            //$resultado = CitasC::VerCitasC();
+							$resultado = CitasC::VerAgendaC();
 
                             foreach ($resultado as $key => $value) {
                                 

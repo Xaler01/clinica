@@ -34,12 +34,17 @@ if($_SESSION["rol"] != "Doctor"  ){
               $columna = "id";
               $valor = $dcitas["id_paciente"];
               $paciente = PacientesC::VerPacientesC($columna, $valor);
+              $fecha_nacimiento = $paciente['fnacimiento'];
+                $fecha_actual = date('Y-m-d');
+                $edad = date_diff(date_create($fecha_nacimiento), date_create($fecha_actual));
               echo '<b>Nombre: </b><td>'.$paciente["nombre"].' '.$paciente["apellido"].'</td><br>
-                    <b>Edad: </b><td>24 años </td> <br>
-                    <b>Genero: </b><td>'.$paciente["sexo"].'</td><br>
+
+                    <b>Edad: </b><td>'. $edad->format('%y años') .'</td> <br>
+
+                    <b>Género: </b><td>'.$paciente["sexo"].'</td><br>
                     <b>C.I: </b><td>'.$paciente["documento"].'</td><br>
                   <b>Correo: </b><td>'.$paciente["correo"].'</td><br>
-                  <b>Telefono: </b><td>'.$paciente["telefono"].'</td>';
+                  <b>Teléfono: </b><td>'.$paciente["telefono"].'</td>';
               }
             }
           ?>
@@ -61,12 +66,19 @@ if($_SESSION["rol"] != "Doctor"  ){
                 $valor = $dcitas["id_doctor"];
 
                 $doctor = DoctoresC::DoctorC($columna, $valor);
+
+                $fecha_nacimiento = $doctor['fnacimiento'];
+                $fecha_actual = date('Y-m-d');
+                $edad = date_diff(date_create($fecha_nacimiento), date_create($fecha_actual));
+
                 echo '<b>Nombre: </b><td>'.$doctor["nombre"].' '.$doctor["apellido"].'</td><br>
-                          <b>Edad: </b><td>24 años </td> <br>
-                          <b>Genero: </b><td>'.$doctor["sexo"].'</td><br>
+
+                          <b>Edad: </b><td>'. $edad->format('%y años') .' </td> <br>
+
+                          <b>Género: </b><td>'.$doctor["sexo"].'</td><br>
                           <b>C.I: </b><td>'.$doctor["documento"].'</td><br>
-                        <b>Correo: </b><td>'.$doctor["correo"].'</td><br>
-                        <b>Telefono: </b><td>'.$doctor["telefono"].'</td>';
+                          <b>Correo: </b><td>'.$doctor["correo"].'</td><br>
+                          <b>Teléfono: </b><td>'.$doctor["telefono"].'</td>';
               }
             }
           ?>
@@ -85,7 +97,7 @@ if($_SESSION["rol"] != "Doctor"  ){
         <div class="table-responsive">
           <table class="table">
             <tr>
-              <th style="width:50%">Patologias: </th>
+              <th style="width:50%">Patologías: </th>
               <td>NA</td>
             </tr>
             <tr>
@@ -93,7 +105,7 @@ if($_SESSION["rol"] != "Doctor"  ){
               <td>NA</td>
             </tr>
             <tr>
-              <th>Proxima Cita sugerida: </th>
+              <th>Próxima Cita sugerida: </th>
               <td>30 dias</td>
             </tr>
           </table>

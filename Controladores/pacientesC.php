@@ -39,6 +39,7 @@ class PacientesC{
 
 	}
 
+	
 	public function CrearPacienteLogC(){
 
 		if(isset($_POST["rolP"])){
@@ -71,7 +72,6 @@ class PacientesC{
 	}
 
 
-
 	//Ver Pacientes
 	static public function VerPacientesC($columna, $valor){
 
@@ -82,7 +82,6 @@ class PacientesC{
 		return $resultado;
 
 	}
-
 
 
 	//Borrar Paciente
@@ -114,7 +113,6 @@ class PacientesC{
 		}
 
 	}
-
 
 
 	//Actualizar Paciente
@@ -206,8 +204,6 @@ class PacientesC{
 	}
 
 
-
-
 	//Ver perfil del paciente
 	public function VerPerfilPacienteC(){
 
@@ -257,57 +253,56 @@ class PacientesC{
 	}
 
 
-		//Ver perfil del paciente para diagnostico
-		public function VerPerfilDiagnosticoPacienteC(){
+	//Ver perfil del paciente para diagnostico
+	public function VerPerfilDiagnosticoPacienteC(){
 
-			$tablaBD = "pacientes";
-	
-			$id = $_SESSION["id"];
-	
-			$resultado = PacientesM::VerPerfilDiagnosticoPacienteM($tablaBD, $id);
-	
-			echo '<tr>
+		$tablaBD = "pacientes";
+
+		$id = $_SESSION["id"];
+
+		$resultado = PacientesM::VerPerfilDiagnosticoPacienteM($tablaBD, $id);
+
+		echo '<tr>
+				
+
+				<td>'.$resultado["nombre"].'</td>
+				<td>'.$resultado["apellido"].'</td>
+				<td>'.$resultado["documento"].'</td>
+				<td>24</td>
+				<td>'.$resultado["sexo"].'</td>
+
+
+				<td>'.$resultado["correo"].'</td>					
+				<td>'.$resultado["telefono"].'</td>
+				<td>'.$resultado["direccion"].'</td>
+				<td>'.$resultado["ciudad"].'</td>
+				<td>'.$resultado["fnacimiento"].'</td>
+				';
+
+				if($resultado["foto"] == ""){
+
+					echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
+
+				}else{
+
+					echo '<td><img src="'.$resultado["foto"].'" width="40px"></td>';
+
+				}
+				
+
+				echo '
+
+				<td>
 					
+					<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
+						<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
+					</a>
 
-					<td>'.$resultado["nombre"].'</td>
-					<td>'.$resultado["apellido"].'</td>
-					<td>'.$resultado["documento"].'</td>
-					<td>24</td>
-					<td>'.$resultado["sexo"].'</td>
+				</td>
 
+			</tr>';
 
-					<td>'.$resultado["correo"].'</td>					
-					<td>'.$resultado["telefono"].'</td>
-					<td>'.$resultado["direccion"].'</td>
-					<td>'.$resultado["ciudad"].'</td>
-					<td>'.$resultado["fnacimiento"].'</td>
-					';
-	
-					if($resultado["foto"] == ""){
-	
-						echo '<td><img src="Vistas/img/defecto.png" width="40px"></td>';
-	
-					}else{
-	
-						echo '<td><img src="'.$resultado["foto"].'" width="40px"></td>';
-	
-					}
-					
-	
-					echo '
-	
-					<td>
-						
-						<a href="http://localhost/clinica/perfil-P/'.$resultado["id"].'">
-							<button class="btn btn-success"><i class="fa fa-pencil"></i></button>
-						</a>
-	
-					</td>
-	
-				</tr>';
-	
-		}
-
+	}
 
 
 	//Editar Perfil Paciente *
@@ -412,8 +407,6 @@ class PacientesC{
 				</form>';
 
 	}
-
-
 
 
 	//Actualizar Perfil del Paciente

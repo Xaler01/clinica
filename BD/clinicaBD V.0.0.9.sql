@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2023 a las 06:08:36
+-- Tiempo de generación: 13-02-2023 a las 04:10:47
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -272,7 +272,9 @@ INSERT INTO `citas` (`id`, `id_doctor`, `id_consultorio`, `id_paciente`, `nyaP`,
 (197, 8, 2, 20, 'Alex Usuario B', '1548726345', '2023-09-29 08:00:00', '2023-09-29 09:00:00', '', '', '', '', '', 'Atendida'),
 (198, 8, 2, 20, 'Alex Usuario B', '1548726345', '2023-08-28 08:00:00', '2023-08-28 09:00:00', '', '', '', '', '', 'Reservada'),
 (199, 3, 5, 24, 'prueba Prueba', '1575369823', '2023-09-06 08:00:00', '2023-09-06 09:00:00', '', '', '', '', '', 'Atendida'),
-(200, 3, 5, 24, 'prueba Prueba', '1575369823', '2023-10-12 08:00:00', '2023-10-12 09:00:00', '', '', '', '', '', 'Paciente no acude');
+(200, 3, 5, 24, 'prueba Prueba', '1575369823', '2023-10-12 08:00:00', '2023-10-12 09:00:00', '', '', '', '', '', 'Paciente no acude'),
+(201, 20, 4, 17, 'Pepitó Aprende mucho', '7258495856', '2023-02-09 11:00:00', '2023-02-09 12:00:00', '', '', '', '', '', 'Reservada'),
+(202, 20, 4, 17, 'Pepitó Aprende mucho', '7258495856', '2023-02-15 11:00:00', '2023-02-15 12:00:00', '', '', '', '', '', 'Reservada');
 
 -- --------------------------------------------------------
 
@@ -290,10 +292,10 @@ CREATE TABLE `consultorios` (
 --
 
 INSERT INTO `consultorios` (`id`, `nombre`) VALUES
-(1, 'Odontologia'),
-(2, 'Cardiologia'),
+(1, 'Odontología'),
+(2, 'Cardiología'),
 (4, 'Laboratorio'),
-(5, 'Nutricion'),
+(5, 'Nutrición'),
 (8, 'Psicologia'),
 (9, 'Acupuntura'),
 (11, 'Rehabilitacion'),
@@ -361,17 +363,6 @@ CREATE TABLE `especialidad_atendidos` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `especialidad_noatendidos`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `especialidad_noatendidos` (
-`ESPECIALIDAD` text
-,`NO ATENDIDOS` bigint(21)
-);
-
--- --------------------------------------------------------
-
---
 -- Estructura Stand-in para la vista `especialidad_numerodecitas`
 -- (Véase abajo para la vista actual)
 --
@@ -431,7 +422,7 @@ CREATE TABLE `inicio` (
 --
 
 INSERT INTO `inicio` (`id`, `intro`, `horaE`, `horaS`, `telefono`, `correo`, `direccion`, `anuncios`, `logo`, `favicon`) VALUES
-(1, 'Hospital básico de la zona El Oro', '09:00:00', '18:00:00', '0964074245', 'info@hbzel.com', 'El Oro - Av. Quito y 9 de Octubre', 'Feliz 2023. Este Sistema de citas, se lanzara al publico desde el lunes 30 de Enero del 2023...', 'Vistas/img/logo.png', 'Vistas/img/favicon.png');
+(1, 'Hospital básico de la zona El Oro', '09:00:00', '18:00:00', '0964074245', 'info@hbzel.com', 'El Oro - Av. Quito y 9 de Octubre', 'Hoy promoción de 2x1 en todas nuestras operaciones', 'Vistas/img/logo.png', 'Vistas/img/favicon.png');
 
 -- --------------------------------------------------------
 
@@ -502,8 +493,8 @@ INSERT INTO `pacientes` (`id`, `apellido`, `nombre`, `documento`, `correo`, `tel
 (2, 'Moreno Merizalde', 'Adriana Brigethe', '1715141219', '', '', '', '', '0000-00-00', '', '', 'pacient', 'e', 'Paciente'),
 (3, 'prueba', 'paciente de', '1714524863', 'prueba@correo.com', '+59352142256315', 'Av 1 y Av trentaicinco', 'Loja', '2020-10-22', 'Masculino', '', 'test6', '6', 'Paciente'),
 (5, 'AAlexander', 'Paciente', '1720604807', 'nuevo@correo.com', '+593652541570', 'Obelisco', 'Quito', '1980-07-29', 'Masculino', '', 'paci', 'ente', 'Paciente'),
-(6, 'Burbano', 'Edgar Paciente', '1475236504', 'correo@dss.com', '+5938855441236', 'Lomas altas', 'Quito', '1950-11-28', 'Masculino', '', 'test8', '8', 'Paciente'),
-(8, 'Arteaga', 'Paciente N', '1254789658', 'correo@nuevo.com', '+59374125412563', 'Guamani', 'Loja', '2010-12-14', 'Femenino', '', 'test7', '7', 'Paciente'),
+(6, 'Burbano', 'Edgar Paciente', '1475236504', 'correo@dss.com', '+5938855441236', 'Lomas altas', 'Quito', '1960-02-29', 'Masculino', '', 'test8', '8', 'Paciente'),
+(8, 'Arteaga', 'Paciente N', '1254789658', 'correo@nuevo.com', '+59374125412563', 'Guamani', 'Seleccionar...', '2020-07-14', 'Masculino', '', 'test7', '7', 'Paciente'),
 (9, 'Benavides', 'Belen', '1754856321', 'correo@vorreo.com', '+553215428963', 'Barrio bajo ', 'Seleccionar...', '1956-10-29', 'Seleccionar...', '', 'test5', '5', 'Paciente'),
 (10, 'Abdon', 'paciente Juan', 'XYZ5248AbC2', 'Nuevo@a.com', '+58745212547822', 'Tumbaco', 'Loja', '1986-04-28', 'Masculino', '', 'ab', 'ab', 'Paciente'),
 (11, 'Jacome', 'Alexander', '1212121212', 'alexander@pm.me', '+5935215412', 'America 352 y Jiron', 'Quito', '1997-01-13', 'Masculino', '', 'ale', 'x', 'Paciente'),
@@ -566,15 +557,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `especialidad_noatendidos`
---
-DROP TABLE IF EXISTS `especialidad_noatendidos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `especialidad_noatendidos`  AS SELECT `consultorios`.`nombre` AS `ESPECIALIDAD`, count(`citas`.`estado`) AS `NO ATENDIDOS` FROM (`consultorios` join `citas`) WHERE `consultorios`.`id` = `citas`.`id_consultorio` AND `citas`.`estado` = 'No Atendida' GROUP BY `citas`.`id_consultorio``id_consultorio`  ;
-
--- --------------------------------------------------------
-
---
 -- Estructura para la vista `especialidad_numerodecitas`
 --
 DROP TABLE IF EXISTS `especialidad_numerodecitas`;
@@ -595,7 +577,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 -- Estructura para la vista `medico_especialidad_atenciones`
 --
-DROP TABLE IF EXISTS `c`;
+DROP TABLE IF EXISTS `medico_especialidad_atenciones`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `medico_especialidad_atenciones`  AS SELECT `doctores`.`nombre` AS `nombre`, `doctores`.`apellido` AS `apellido`, `consultorios`.`nombre` AS `especialidad`, count(`citas`.`estado`) AS `atenciones` FROM ((`doctores` join `citas`) join `consultorios`) WHERE `doctores`.`id` = `citas`.`id_doctor` AND `doctores`.`id_consultorio` = `consultorios`.`id` AND `citas`.`estado` = 'Atendida' GROUP BY `doctores`.`id``id`  ;
 
@@ -674,43 +656,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
-
---
--- AUTO_INCREMENT de la tabla `consultorios`
---
-ALTER TABLE `consultorios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT de la tabla `doctores`
---
-ALTER TABLE `doctores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT de la tabla `evoluciones`
---
-ALTER TABLE `evoluciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `inicio`
---
-ALTER TABLE `inicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `pacientes`
---
-ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT de la tabla `secretarias`
---
-ALTER TABLE `secretarias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

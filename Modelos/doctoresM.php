@@ -68,7 +68,7 @@ class DoctoresM extends ConexionBD{
 
 
 	//Mostrar Doctores
-	static public function VerDoctoresM($tablaBD, $columna, $valor){
+static public function VerDoctoresM($tablaBD, $columna, $valor){
 
 		if($columna != null){
 
@@ -96,7 +96,7 @@ class DoctoresM extends ConexionBD{
 	}
 
 
-	//Editar Doctor
+	//Mostrar Doctor
 	static public function DoctorM($tablaBD, $columna, $valor){
 
 		if($columna != null){

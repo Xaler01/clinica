@@ -54,7 +54,7 @@ class DoctoresC{
 	}
 
 
-	//Editar Doctor
+	//Mostrar Doctor para tomar cita
 	static public function DoctorC($columna, $valor){
 
 		$tablaBD = "doctores";
@@ -103,8 +103,6 @@ class DoctoresC{
 		}
 
 	}
-
-
 
 
 	//Borrar Doctor
@@ -251,7 +249,6 @@ class DoctoresC{
 	}
 
 
-
 	//Editar Perfil Doctor
 	public function 
 	EditarPerfilDoctorC(){
@@ -388,8 +385,6 @@ class DoctoresC{
 				</form>';
 
 	}
-
-
 
 
 	//Actualizar Perfil Doctor

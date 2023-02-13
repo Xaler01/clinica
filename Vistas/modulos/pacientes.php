@@ -11,6 +11,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 }
 
+if($_SESSION["rol"] != "Doctor" ){
+}
+
 
 ?>
 
@@ -59,11 +62,11 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 						<th>Identificación</th>
 
 						<th>Correo</th>
-						<th>Telefono</th>
+						<th>Teléfono</th>
 						<th>Dirección</th>
 						<th>Ciudad</th>
 						<th>F. nacimimiento</th>
-						<th>Genero</th>
+						<th>Género</th>
 
 						<th>Foto</th>
 						<th>Usuario</th>
@@ -200,7 +203,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 						<div class="form-group">
 
-							<h3>Telefono:</h3>
+							<h3>Teléfono:</h3>
 
 							<input type="text" class="form-control input-lg" name="telefono" maxlength="15" required>
 
@@ -242,7 +245,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 						<div class="form-group">
 
-							<h3>Genero:</h3>
+							<h3>Género:</h3>
 
 							<select class="form-control input-lg" name="sexo">
 								
@@ -351,7 +354,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 						<div class="form-group">
 							
-							<h3>Telefono:</h3>
+							<h3>Teléfono:</h3>
 
 							<input type="text" class="form-control input-lg" id="telefonoE" name="telefonoE" maxlength="15" required>
 
@@ -393,7 +396,7 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Doctor" && $_SESSION
 
 						<div class="form-group">
 							
-							<h3>Genero:</h3>
+							<h3>Género:</h3>
 
 							<select class="form-control input-lg" name="sexoE">
 								
