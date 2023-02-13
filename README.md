@@ -16,7 +16,7 @@ El rol administrador puede gestionar la interfaz inicio para todos los usuarios 
 
 Es necesario descargar AdminLTE-2.4.2 y copiar las carpetas "bower_components" y "dist" en la "vistas" del proyecto. 
 
-En XAMPP se debe importar la ultima version de la carpeta BD, la cual contiene los datos actualizados al momento.
+En XAMPP (XAMPP Control Panel v3.3.0 - xampp-windows-x64-7.4.33-0-VC15-installer) se debe importar la ultima version de la carpeta BD, la cual contiene los datos actualizados al momento.
 
 Version actual: clinica V.0.0.9
 Base D. actual: clinicaBD V.0.0.9
