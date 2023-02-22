@@ -29,7 +29,9 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 			<div class="box-header">
 				
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CrearDoctor">Crear Doctor</button>
-				
+
+
+			
 			</div>
 
 
@@ -150,6 +152,8 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 	</section>
 
 </div>
+
+
 
 
 </--//Maquetado para CREAR DOCTORES-->
@@ -350,7 +354,6 @@ if($_SESSION["rol"] != "Secretaria" && $_SESSION["rol"] != "Administrador"){
 							<input type="text" class="form-control input-lg" id="apellidoE" name="apellidoE"  required>
 
 							
-
 						</div>
 
 						<div class="form-group">

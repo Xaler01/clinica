@@ -11,11 +11,8 @@ if($_SESSION["rol"] != "Doctor"  ){
 }
 ?>
 
-
-
-<!--<body onload="window.print();">-->
-
 <div class="content-wrapper">
+
   <!-- Main content -->
   <section class="invoice">
     <!-- info Datos datos Cabecera -->
@@ -37,7 +34,7 @@ if($_SESSION["rol"] != "Doctor"  ){
               $fecha_nacimiento = $paciente['fnacimiento'];
                 $fecha_actual = date('Y-m-d');
                 $edad = date_diff(date_create($fecha_nacimiento), date_create($fecha_actual));
-              echo '<b>Nombre: </b><td>'.$paciente["nombre"].' '.$paciente["apellido"].'</td><br>
+              echo '<b>Nombre P: </b><td>'.$paciente["nombre"].' '.$paciente["apellido"].'</td><br>
 
                     <b>Edad: </b><td>'. $edad->format('%y años') .'</td> <br>
 
@@ -88,115 +85,90 @@ if($_SESSION["rol"] != "Doctor"  ){
       
       </div>
     <!-- /.Fin inf datos cabecera -->
+  </section>
 
     <!-- Table Diagnostico -->
-    <div class="row">
-       <div class="col-xs-6">
-        <p class="lead">Antecedentes Patológicos</p>
+  <section class="content">
 
-        <div class="table-responsive">
-          <table class="table">
-            <tr>
-              <th style="width:50%">Patologías: </th>
-              <td>NA</td>
-            </tr>
-            <tr>
-              <th>Alergias:</th>
-              <td>NA</td>
-            </tr>
-            <tr>
-              <th>Próxima Cita sugerida: </th>
-              <td>30 dias</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <!-- /.col -->
-      <!-- accepted payments column -->
-      <div class="col-xs-6">
-        <p class="lead">Diagnóstico</p>
-        
-
-        <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-          El paciente presenta molestias en el estomago, lo cual se atribuye a una posible INFECCION ESTOMACAL
-        </p>
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- FIN Table Diagnostico -->
-
-    <!-- Table RECETA -->
-    <div class="row">
-      <div class="col-xs-12 table-responsive">
-        <table class="table table-striped">
-          <thead>
-             <p class="lead">Receta</p>
-          <tr>
-            <th>Item</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Indicaciones</th>
-            
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>1</td>
-            <td>Ibuprofeno 400mg</td>
-            <td>10</td>
-            <td>Tomar cada 8 horas con los alimentos</td>
-          </tr>
-        </tbody>
-        </table>
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
-   
-    <!-- Table Estado de la atención -->
+  <div class="box"> 
+  <form method="post" role="form"> 
 
     <div  rol="dialog" id="EditarEstadoCita">
 
-        <form method="post" role="form">
-          
-          <div id="bodyEstado">
+     <div id="bodyEstado">
 
-            <div class="box-body">
-              <!-- Split button -->
+      
 
-              <div class="form-group">
-                
-                <p class="lead">Estado de la cita</p>
+        <div class="box-body">
+          <!-- Split button -->
+
+          <div class="form-group">
+
+            <div class="row">
               
-                <input type="hidden" id="Cid" name="Cid">
+              <div class="col-xs-6">
                 
-                <select  class="form-control input-lg" name="estadoC">
-                          <?php
-                          $datoscita = CitasC::VerCitasC();
-                          foreach ($datoscita as $key => $dcitas){
-                              if($_SESSION["id"]==$dcitas["id_doctor"] &&$dcitas["id"] == substr($_GET["url"], 12) ) {
-                              echo'<option>'.$dcitas["estado"].'</option>
-                              <!--<option value="Reservada">Reservada</option>-->
-                              <option value="Atendida">Atendida</option>
-                              <option value="No Atendida">No Atendida</option>
-                              <option value="Paciente no acude">Paciente no acude</option>';
-                            }                         
-                          }
-                          
-                          ?>
-                          
-
-                </select>
-                <?php  
+                <p class="lead">Antecedentes Patológicos</p> 
+                
+                <div class="table-responsive">
+                  
+                  <table class="table">
+                    <tr><th>Alergias:</th>
+                    <td><input type="text" class="form-control input-lg" name="alergias" required></td>
+                    </tr>
                     
-                ?>
-                
+                    <tr><th style="width:50%">Patologías:</th>                    
+                    <td><input type="text" class="form-control input-lg" name="patologias" required></td>
+                  </tr>
+                  </table>
+                </div>
               </div>
+              <!-- /.col -->
 
+              <div class="col-xs-6">
 
+                <p class="lead">Diagnóstico</p>
+
+                <div class="form-group">
+
+                  <label for="diagnostico">Ingrese el diagnóstico del paciente:</label>
+
+                  <textarea class="form-control input-lg" id="diagnostico" name="diagnostico" required rows="3"></textarea>
+
+                </div>
+      
+              </div>
+              <!-- /.col -->
             </div>
+            <!-- FIN Table Diagnostico -->
 
+           
+            <p class="lead">Estado de la cita</p>
+            <input type="hidden" id="Cid" name="Cid">
+            <select  class="form-control input-lg" name="estadoC">
+              <?php
+                $datoscita = CitasC::VerCitasC();
+                foreach ($datoscita as $key => $dcitas){
+                    if($_SESSION["id"]==$dcitas["id_doctor"] &&$dcitas["id"] == substr($_GET["url"], 12) ) {
+                    echo'<option>'.$dcitas["estado"].'</option>
+                    <!--<option value="Reservada">Reservada</option>-->
+                    <option value="Atendida">Atendida</option>
+                    <option value="No Atendida">No Atendida</option>
+                    <option value="Paciente no acude">Paciente no acude</option>';
+                  }                         
+                }
+                          
+              ?>
+            </select>
+                  
           </div>
+
+
+        </div>
+
+      
+
+     </div>
           
           <div class ="FM" id="footerEstado">
             
@@ -207,7 +179,7 @@ if($_SESSION["rol"] != "Doctor"  ){
               {
                 if($_SESSION["id"]==$dcitas["id_doctor"] &&$dcitas["id"] == substr($_GET["url"], 12) ) {
 
-                  echo'<button type="submit" class="btn btn-success EditarEstadoCita" Cid="'.$dcitas["id"].'" data-target="#EditarEstadoCita" > Guardar Estado</button>';
+                  echo'<button type="submit" class="btn btn-primary EditarEstadoCita" Cid="'.$dcitas["id"].'" data-target="#EditarEstadoCita" > Guardar Diagnotico</button>';
 
                   $actualizarestado = new CitasC();
                   $actualizarestado -> ActualizarEstadoCitaC();
@@ -220,15 +192,276 @@ if($_SESSION["rol"] != "Doctor"  ){
             
           </div>
 
-        </form> 
+       
 
-            
+      </form>    
     </div>
     <!-- FIN Table Estado de la atención -->
 
   </section>
-  <!-- /.content -->
+
 </div>
 <!-- ./wrapper -->
 
 
+
+
+
+</--//Maquetado para ITEM EN RECETA-->
+<div class="modal fade" rol="dialog" id="CrearItemReceta">
+	
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			
+			<form method="post" role="form">
+				
+				<div class="modal-body">
+					
+					<div class="box-body">
+						
+						<div class="form-group">
+							
+							<h3>Productos:</h3>
+
+              <input type="hidden" id="id_receta" name="id_receta">
+              
+              <input type="text" class="form-control input-lg" id="producto"  name="producto" required>
+
+              
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Cantidad:</h3>
+
+							<input type="text" class="form-control input-lg"  id="cantidad" name="cantidad" required>
+
+						</div>
+
+            <div class="form-group">
+							
+							<h3>Fecha:</h3>
+
+              <?php $today = date("Y-m-d"); ?>
+
+							<input type="date" class="form-control input-lg"  id="fechareceta" name="fechareceta" value="<?php echo $today; ?>" required readonly>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Indicaciones:</h3>
+
+              <textarea class="form-control input-lg" id="indicaciones" name="indicaciones" rows="3"></textarea>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="modal-footer">
+					
+					<button type="submit" class="btn btn-primary">Guardar</button>
+
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+				</div>
+
+				<?php
+
+				$crear = new citasC();
+				$crear -> CrearItemRecetaC();
+
+				?>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+</--//Maquetado para CREAR DOCTORES-->
+<div class="modal fade" rol="dialog" id="CrearDoctor">
+	
+	<div class="modal-dialog">
+		
+		<div class="modal-content">
+			
+			<form method="post" role="form">
+				
+				<div class="modal-body">
+					
+					<div class="box-body">
+						
+						<div class="form-group">
+							
+							<h3>Apellido:</h3>
+
+							<input type="text" class="form-control input-lg" name="apellido" required>
+
+							<input type="hidden" name="rolD" value="Doctor">
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Nombre:</h3>
+
+							<input type="text" class="form-control input-lg" name="nombre" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Identificación:</h3>
+
+							<input type="text" class="form-control input-lg" name="documento" maxlength="10" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Correo:</h3>
+
+							<input type="email" class="form-control input-lg" name="correo" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Teléfono:</h3>
+
+							<input type="text" class="form-control input-lg" name="telefono" maxlength="15" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Dirección:</h3>
+
+							<input type="text" class="form-control input-lg" name="direccion" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Ciudad de residencia:</h3>
+
+							<select class="form-control input-lg" name="ciudad" required>
+								
+								<option>Seleccionar...</option>
+
+								<option value="El Oro">El Oro</option>
+								<option value="Quito">Quito</option>
+								<option value="Loja">Loja</option>
+								<option value="Tulcan">Tulcan</option>
+								<option value="Otra">Otra</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+
+							<h3>Fecha de nacimiento:</h3>
+
+							<input type="date" class="form-control input-lg" name="fnacimiento" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Género:</h3>
+
+							<select class="form-control input-lg" name="sexo">
+								
+								<option>Seleccionar...</option>
+
+								<option value="Masculino">Masculino</option>
+								<option value="Femenino">Femenino</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Consultorio:</h3>
+
+							<select class="form-control input-lg" name="consultorio">
+								
+								<option>Seleccionar...</option>
+
+								<?php
+
+								$columna = null;
+								$valor = null;
+
+								$resultado = ConsultoriosC::VerConsultoriosC($columna, $valor);
+
+								foreach ($resultado as $key => $value) {
+									
+									echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+
+								}
+
+								?>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Usuario:</h3>
+
+							<input type="text" class="form-control input-lg" name="usuario" required>
+
+						</div>
+
+						<div class="form-group">
+							
+							<h3>Contraseña:</h3>
+
+							<input type="text" class="form-control input-lg" name="clave" required>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div class="modal-footer">
+					
+					<button type="submit" class="btn btn-primary">Crear</button>
+
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+				</div>
+
+				<?php
+
+				$crear = new DoctoresC();
+				$crear -> CrearDoctorC();
+
+				?>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>

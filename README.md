@@ -18,12 +18,20 @@ Es necesario descargar AdminLTE-2.4.2 y copiar las carpetas "bower_components" y
 
 En XAMPP (XAMPP Control Panel v3.3.0 - xampp-windows-x64-7.4.33-0-VC15-installer) se debe importar la ultima version de la carpeta BD, la cual contiene los datos actualizados al momento.
 
-Version actual: clinica V.0.0.9
-Base D. actual: clinicaBD V.0.0.9
-
-Version próxima: clinica V.0.0.10
-Base D. próxima: clinicaBD V.0.0.10
-
 ***********
+Version actual: clinica V.0.0.9
 Se encuentra pendiente la corrección para el módulo diagnóstico para que lea los datos ingresados en el formulario de "Antecedentes Patologicos", "Diagnostico" y "Receta"
 ***********
+clinica V.0.0.10
+Se corrigio el módulo "diagnostico" para que lea los datos ingresados en el formulario de "Se cambio 'Antecedentes Patologicos" por 'Patologias'", "Diagnstico", se aumento "Alergias" y se quito "Recetas" hasta una nueva actualizacion
+
+Se deberia dar la opcionde ver los "diagnosticos" ingresados por el "doctor" al "paciente" para que el "paciente" como usuario final,haga una evaluacion del"doctor" que hizo la atencion de la cita medica.
+
+Se presentan bugs al hacer recarga de la pagina despues de hacer una "Nueva Cita"
+++++++++++++
+
+Version actual: clinica V.0.0.10
+Base D. actual: clinicaBD V.0.0.10
+
+Version próxima: clinica V.0.0.11
+Base D. próxima: clinicaBD V.0.0.11

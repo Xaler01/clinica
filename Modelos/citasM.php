@@ -54,6 +54,8 @@ class CitasM extends ConexionBD{
 
 		$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD where estado = 'Reservada'");
 
+		//$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD order by estado DESC");
+
 		$pdo -> execute();
 
 		return $pdo -> fetchAll();
@@ -174,12 +176,19 @@ class CitasM extends ConexionBD{
 
 	static public function ActualizarEstadoCitaM($tablaBD, $datosC){
 		
-		
 		$pdo = ConexionBD::cBD()->prepare("UPDATE $tablaBD SET
+			alergias = :alergias, 
+			patologias= :patologias,
+			diagnostico = :diagnostico,
 			estado = :estado WHERE id = :id");
 		
-		$pdo -> bindParam("id", $datosC["id"], PDO::PARAM_INT);
-		$pdo -> bindParam("estado", $datosC["estado"], PDO::PARAM_STR);
+		$pdo -> bindParam(":id", $datosC["id"], PDO::PARAM_INT);
+		$pdo -> bindParam(":alergias", $datosC["alergias"], PDO::PARAM_STR);
+		$pdo -> bindParam(":patologias", $datosC["patologias"], PDO::PARAM_STR);
+		$pdo -> bindParam(":diagnostico", $datosC["diagnostico"], PDO::PARAM_STR);
+		//$pdo -> bindParam("receta", $datosC["receta"], PDO::PARAM_STR);
+		//$pdo -> bindParam("indicaciones", $datosC["indicaciones"], PDO::PARAM_STR);
+		$pdo -> bindParam(":estado", $datosC["estado"], PDO::PARAM_STR);
 		
 		
 		if($pdo->execute()){
@@ -190,5 +199,76 @@ class CitasM extends ConexionBD{
 		$pdo = null;
 
 	}
+
+	static public function CrearItemRecetaM($tablaBD, $datosC){
+		
+		$pdo = ConexionBD::cBD()->prepare("INSERT INTO $tablaBD(
+			id_receta,
+			id_cita, 
+			producto, 
+			cantidad,
+			fechareceta,
+			indicaciones) 
+			VALUES(
+				:id_receta, 
+				:id_cita, 
+				:producto, 
+				:cantidad, 
+				:fechareceta,
+				:indicaciones)");
+		
+		$pdo -> bindParam(":id_receta", $datosC["id_receta"], PDO::PARAM_INT);
+		$pdo -> bindParam(":id_cita", $datosC["id_cita"], PDO::PARAM_INT);
+		$pdo -> bindParam(":producto", $datosC["producto"], PDO::PARAM_STR);
+		$pdo -> bindParam(":cantidad", $datosC["cantidad"], PDO::PARAM_STR);
+		$pdo -> bindParam(":fechareceta", $datosC["fechareceta"], PDO::PARAM_STR);
+		$pdo -> bindParam(":indicaciones", $datosC["indicaciones"], PDO::PARAM_STR);
+		
+		
+		
+		if($pdo->execute()){
+			return true;
+		}
+
+		$pdo -> close();
+		$pdo = null;
+
+	}
+
+
+		//Mostrar Recetas
+		static public function VerItemRecetaM($tablaBD, $columna, $valor){
+
+			if($columna != null){
+
+				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD WHERE $columna = :$columna");
+
+				$pdo -> bindParam(":".$columna, $valor, PDO::PARAM_STR);
+
+				$pdo->execute();
+
+				return $pdo -> fetchAll();
+
+			}else{
+
+				$pdo = ConexionBD::cBD()->prepare("SELECT * FROM $tablaBD");
+
+				$pdo->execute();
+
+				return $pdo -> fetchAll();
+
+			}
+
+			$pdo -> close();
+			$pdo = null;
+
+		}
+
+
+	
+
+
+
+
 
 }
