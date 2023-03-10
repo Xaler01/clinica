@@ -116,6 +116,8 @@ session_start();
         $url[0] == "imprimirf1" ||
         $url[0] == "imprimirf2" ||
         $url[0] == "imprimirf3" ||
+        $url[0] == "preexistentes" ||  
+        $url[0] == "E-P" ||       
         $url[0] == "inicio-editar"){
 
         include "modulos/".$url[0].".php";

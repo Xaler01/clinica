@@ -29,9 +29,22 @@ Se deberia dar la opcionde ver los "diagnosticos" ingresados por el "doctor" al 
 
 Tiene un bug al hacer recarga de la pagina despues de hacer una "Nueva Cita"
 *************
+***********
+Version clinica V.1.0.0
+Por evaluacion del sistema por parte del cliente, se hace primer lanzamiento con:
+Nuevo modulo de ingreso de Enfermedades Preexistentes"
+Se incluye funcion de Creacion, Edicion, y consulta de enfermedades
+Queda pendiente funcionalidad de eliminacion de enferemdades e inclusion de campos:
+Nombre Paciente
+Edad Paciente
+Fecha diagnostico
+Nombre Enfermedad
+Fecha registro y
+Observaciones
+*************
 
-Version actual: clinica V.0.0.10
-Base D. actual: clinicaBD V.0.0.10
+Version actual: clinica V.1.0.0
+Base D. actual: clinicaBD V.0.0.11
 
-Version próxima: clinica V.0.0.11
-Base D. próxima: clinicaBD V.0.0.11
+Version próxima: clinica V.1.0.1
+Base D. próxima: clinicaBD V.0.0.12

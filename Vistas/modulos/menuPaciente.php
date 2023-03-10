@@ -28,6 +28,15 @@
           </a>
         </li>
 
+        <li>
+        <?php
+        echo '  <a href="http://localhost/clinica/preexistentes/'.$_SESSION["id"].'">';
+        ?>
+            <i class="fa fa-plus-square"></i>
+            <span>Enfermedades preexistentes</span>
+          </a>
+        </li>
+
       </ul>
 
     </section>
